@@ -5,6 +5,7 @@ import { map, catchError } from 'rxjs/operators';
 
 import { Product } from './product.interface';
 import { ProductQuery } from './product-query.interface';
+import { ProductReview } from '@services/review.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +28,7 @@ export class WoocommerceProductsService {
   /**
    * Retrive a product
    */
-  retriveProduct(id: string) {
+  retriveProduct(id: number): Observable<Product> {
     return this.httpClient.get(`products/${id}`)
       .pipe(catchError(err => this.handleError(err)));
   }
@@ -35,15 +36,15 @@ export class WoocommerceProductsService {
   /**
    * Retrive list of product
    */
-  retriveProducts(query: ProductQuery = {}) {
-    return this.httpClient.get(`products`, {params: this.includeQuery(query)})
+  retriveProducts(query: ProductQuery = {}): Observable<Product[]> {
+    return this.httpClient.get<Product[]>(`products`, {params: this.includeQuery(query)})
       .pipe(catchError(err => this.handleError(err)));
   }
 
   /**
    * Update Product
    */
-  updateProduct(id: string, payload: Product) {
+  updateProduct(id: number, payload: Product): Observable<Product> {
     return this.httpClient.put(`products/${id}`, payload)
     .pipe(catchError(err => this.handleError(err)));
   }
@@ -51,7 +52,7 @@ export class WoocommerceProductsService {
   /**
    * Update Product
    */
-  deleteProduct(id: string, payload: Product) {
+  deleteProduct(id: number): Observable<Product> {
     return this.httpClient.delete(`products/${id}`)
     .pipe(catchError(err => this.handleError(err)));
   }
@@ -59,16 +60,16 @@ export class WoocommerceProductsService {
   /**
    * Retrive product review
    */
-  retriveProductReview(product_id: string, reviews_id: string) {
-    return this.httpClient.get(`products/${product_id}/reviews/${reviews_id}`)
+  retriveProductReview(product_id: string, reviews_id: string): Observable<ProductReview> {
+    return this.httpClient.get<ProductReview>(`products/${product_id}/reviews/${reviews_id}`)
     .pipe(catchError(err => this.handleError(err)));
   }
 
   /**
-   * Retrive product review by product id
+   * Retrive product reviews by product id
    */
-  retriveProductReviews(product_id: string) {
-    return this.httpClient.get(`products/${product_id}/reviews`)
+  retriveProductReviews(product_id: string): Observable<ProductReview[]> {
+    return this.httpClient.get<ProductReview[]>(`products/${product_id}/reviews`)
     .pipe(catchError(err => this.handleError(err)));
   }
 
