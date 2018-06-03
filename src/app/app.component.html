@@ -1,21 +1,12 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
-    Welcome to {{ title }}!
+    Welcome to {{title}}!
   </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+  <div>
+    <img src="data:image/png;base64,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">
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+
 
 <router-outlet></router-outlet>
