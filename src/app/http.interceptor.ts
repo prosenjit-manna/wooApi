@@ -8,7 +8,7 @@ import {
 } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { map, catchError } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 
 // import { AuthService } from './auth.service';
 import { environment } from '../environments/environment';
@@ -21,14 +21,25 @@ export class AppInterceptor implements HttpInterceptor {
     private router: Router
   ) { }
 
+  private includeWooAuth(url) {
+    const wooAuth = `consumer_key=${environment.woocommerce.consumer_key}&consumer_secret=${environment.woocommerce.consumer_secret}`;
+    const hasQuery = url.includes('?');
+    let return_url = '';
+    if (hasQuery) {
+      return_url =  wooAuth;
+    } else {
+      return_url = '?' + wooAuth;
+    }
+    return return_url;
+  }
+
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // const auth = this.injector.get(AuthService);
-
     const authRequest = request.clone({
       setHeaders: {
         // Authorization: `Bearer ${auth.getToken()}`
       },
-      url: request.url.includes('i18n/') ? request.url : `${environment.origin}/${request.url}`
+      url: `${environment.origin}/${request.url}${this.includeWooAuth(request.url)}`
     });
 
     return next.handle(authRequest)
@@ -40,7 +51,7 @@ export class AppInterceptor implements HttpInterceptor {
             // auth.setToken(null);
             // this.router.navigate(['/', 'login']);
           }
-          return Observable.throw(err);
+          return throwError(err);
         })
       );
   }

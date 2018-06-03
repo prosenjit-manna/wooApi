@@ -4,8 +4,6 @@ import { CommonModule } from '@angular/common';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home/home.component';
 
-import { HomeService } from './home.service';
-
 @NgModule({
   imports: [
     CommonModule,
@@ -14,8 +12,5 @@ import { HomeService } from './home.service';
   declarations: [
     HomeComponent
   ],
-  providers: [
-    HomeService
-  ]
 })
 export class HomeModule { }

@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { AppInterceptor } from './http.interceptor';
+import { WoocommerceProductsService } from './services/woocommerce-products.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AppInterceptor } from './http.interceptor';
       provide: HTTP_INTERCEPTORS,
       useClass: AppInterceptor,
       multi: true
-    }
+    },
+    WoocommerceProductsService
   ],
   bootstrap: [AppComponent]
 })
