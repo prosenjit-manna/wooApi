@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 import { Product } from './product.interface';
 import { ProductQuery } from './product-query.interface';
-import { ProductReview } from '@services/review.interface';
+import { ProductReview } from './review.interface';
+import { WoocommerceHelperService } from '../helper.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,8 @@ import { ProductReview } from '@services/review.interface';
 export class WoocommerceProductsService {
 
   constructor(
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private wooHelper: WoocommerceHelperService
   ) { }
 
   /**
@@ -21,8 +23,8 @@ export class WoocommerceProductsService {
    * @param payload: Product
    */
   createProduct(payload: Product): Observable<Product> {
-    return this.httpClient.post(`productsa`, payload)
-      .pipe(catchError(err => this.handleError(err)));
+    return this.httpClient.post(`products`, payload)
+      .pipe(catchError(err => this.wooHelper.handleError(err)));
   }
 
   /**
@@ -30,7 +32,7 @@ export class WoocommerceProductsService {
    */
   retriveProduct(id: number): Observable<Product> {
     return this.httpClient.get(`products/${id}`)
-      .pipe(catchError(err => this.handleError(err)));
+      .pipe(catchError(err => this.wooHelper.handleError(err)));
   }
 
   /**
@@ -38,7 +40,7 @@ export class WoocommerceProductsService {
    */
   retriveProducts(query: ProductQuery = {}): Observable<Product[]> {
     return this.httpClient.get<Product[]>(`products`, {params: this.includeQuery(query)})
-      .pipe(catchError(err => this.handleError(err)));
+      .pipe(catchError(err => this.wooHelper.handleError(err)));
   }
 
   /**
@@ -46,7 +48,7 @@ export class WoocommerceProductsService {
    */
   updateProduct(id: number, payload: Product): Observable<Product> {
     return this.httpClient.put(`products/${id}`, payload)
-    .pipe(catchError(err => this.handleError(err)));
+    .pipe(catchError(err => this.wooHelper.handleError(err)));
   }
 
   /**
@@ -54,7 +56,7 @@ export class WoocommerceProductsService {
    */
   deleteProduct(id: number): Observable<Product> {
     return this.httpClient.delete(`products/${id}`)
-    .pipe(catchError(err => this.handleError(err)));
+    .pipe(catchError(err => this.wooHelper.handleError(err)));
   }
 
   /**
@@ -62,7 +64,7 @@ export class WoocommerceProductsService {
    */
   retriveProductReview(product_id: string, reviews_id: string): Observable<ProductReview> {
     return this.httpClient.get<ProductReview>(`products/${product_id}/reviews/${reviews_id}`)
-    .pipe(catchError(err => this.handleError(err)));
+    .pipe(catchError(err => this.wooHelper.handleError(err)));
   }
 
   /**
@@ -70,7 +72,7 @@ export class WoocommerceProductsService {
    */
   retriveProductReviews(product_id: string): Observable<ProductReview[]> {
     return this.httpClient.get<ProductReview[]>(`products/${product_id}/reviews`)
-    .pipe(catchError(err => this.handleError(err)));
+    .pipe(catchError(err => this.wooHelper.handleError(err)));
   }
 
   private includeQuery(query) {
@@ -80,19 +82,4 @@ export class WoocommerceProductsService {
     });
     return queryPatch;
   }
-
-  private handleError(error: HttpErrorResponse) {
-    if (error.error instanceof ErrorEvent) {
-      // A client-side or network error occurred. Handle it accordingly.
-      console.error('An error occurred:', error.error.message);
-    } else {
-      // The backend returned an unsuccessful response code.
-      // The response body may contain clues as to what went wrong,
-        console.log(error);
-        return throwError(error.error);
-    }
-    // return an observable with a user-facing error message
-    return throwError({message: 'Something bad happened; please try again later.'});
-  }
-
 }

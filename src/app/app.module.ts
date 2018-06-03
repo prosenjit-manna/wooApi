@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 
 import { AppInterceptor } from './http.interceptor';
 import { WoocommerceProductsService } from '@services/products/woocommerce-products.service';
+import { WoocommerceHelperService } from '@services/helper.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { WoocommerceProductsService } from '@services/products/woocommerce-produ
       useClass: AppInterceptor,
       multi: true
     },
-    WoocommerceProductsService
+    WoocommerceProductsService,
+    WoocommerceHelperService
   ],
   bootstrap: [AppComponent]
 })

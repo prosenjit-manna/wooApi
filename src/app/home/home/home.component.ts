@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { WoocommerceProductsService } from '@services/products/woocommerce-products.service';
-import { Product } from '@services/products/product.interface';
 
 @Component({
   selector: 'wooapi-home',

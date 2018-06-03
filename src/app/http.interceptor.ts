@@ -1,4 +1,7 @@
-import { Injectable, Injector } from '@angular/core';
+import {
+  Injectable,
+  // Injector
+ } from '@angular/core';
 import {
   HttpRequest,
   HttpHandler,
@@ -6,8 +9,8 @@ import {
   HttpInterceptor,
   HttpErrorResponse
 } from '@angular/common/http';
-import { Router } from '@angular/router';
-import { map, catchError } from 'rxjs/operators';
+// import { Router } from '@angular/router';
+import { catchError } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 
 // import { AuthService } from './auth.service';
@@ -17,8 +20,8 @@ import { environment } from '../environments/environment';
 export class AppInterceptor implements HttpInterceptor {
 
   constructor(
-    private injector: Injector,
-    private router: Router
+    // private injector: Injector,
+    // private router: Router
   ) { }
 
   private includeWooAuth(url) {
