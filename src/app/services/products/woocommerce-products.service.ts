@@ -39,7 +39,7 @@ export class WoocommerceProductsService {
    * Retrive list of product
    */
   retriveProducts(query: ProductQuery = {}): Observable<Product[]> {
-    return this.httpClient.get<Product[]>(`products`, {params: this.includeQuery(query)})
+    return this.httpClient.get<Product[]>(`products`, {params: this.wooHelper.includeQuery(query)})
       .pipe(catchError(err => this.wooHelper.handleError(err)));
   }
 

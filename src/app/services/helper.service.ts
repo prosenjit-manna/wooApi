@@ -21,4 +21,12 @@ export class  WoocommerceHelperService {
     // return an observable with a user-facing error message
     return throwError({message: 'Something bad happened; please try again later.'});
   }
+
+  includeQuery(query) {
+    const queryPatch = {};
+    Object.keys(query).forEach(key => {
+      queryPatch[key] = query[key].toString();
+    });
+    return queryPatch;
+  }
 }
