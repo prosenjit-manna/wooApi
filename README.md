@@ -19,3 +19,32 @@ function nt_cors_enable() {
   }
 }
 ```
+
+## Setup instruction
+
+- `yarn add ngx-wooapi` or `npm install --save ngx-wooapi`
+- Add interceptor https://gist.github.com/5ce00228883ce6166e65b9eb1862c7c7
+
+Add this code in your app.module.ts
+
+```
+ providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AppInterceptor,
+      multi: true
+    }
+ ]
+
+```
+Add new property in environment.ts for angular webapp 
+
+```
+origin: 'https://domain/appwoo/wc-api/v3',
+  woocommerce: {
+    consumer_key:  'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+    consumer_secret: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+  }
+```
+
+All done have fun :)
