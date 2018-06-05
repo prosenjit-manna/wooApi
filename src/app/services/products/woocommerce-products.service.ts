@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 
-import { Product } from './product.interface';
-import { ProductQuery } from './product-query.interface';
-import { ProductReview } from './review.interface';
+import { 
+  Product,
+  CreateproductResponse,
+  ProductQuery,
+  ProductReview,
+  RetriveProductResponse
+ } from './product.interface';
 import { WoocommerceHelperService } from '../helper.service';
 
 @Injectable({
@@ -22,8 +26,8 @@ export class WoocommerceProductsService {
    * Create a Product
    * @param payload: Product
    */
-  createProduct(payload: Product): Observable<Product> {
-    return this.httpClient.post(`products`, payload)
+  createProduct(payload: Product): Observable<CreateproductResponse> {
+    return this.httpClient.post<CreateproductResponse>(`products`, payload)
       .pipe(catchError(err => this.wooHelper.handleError(err)));
   }
 
@@ -38,9 +42,11 @@ export class WoocommerceProductsService {
   /**
    * Retrive list of product
    */
-  retriveProducts(query: ProductQuery = {}): Observable<Product[]> {
-    return this.httpClient.get<Product[]>(`products`, {params: this.wooHelper.includeQuery(query)})
-      .pipe(catchError(err => this.wooHelper.handleError(err)));
+  retriveProducts(query: ProductQuery = {}): Observable<RetriveProductResponse> {
+    return this.httpClient.get(`products`, {params: this.wooHelper.includeQuery(query), observe: 'response'})
+      .pipe(
+        map(value => this.wooHelper.includeResponseHeader(value)),
+        catchError(err => this.wooHelper.handleError(err)));
   }
 
   /**
@@ -73,13 +79,5 @@ export class WoocommerceProductsService {
   retriveProductReviews(product_id: string): Observable<ProductReview[]> {
     return this.httpClient.get<ProductReview[]>(`products/${product_id}/reviews`)
     .pipe(catchError(err => this.wooHelper.handleError(err)));
-  }
-
-  private includeQuery(query) {
-    const queryPatch = {};
-    Object.keys(query).forEach(key => {
-      queryPatch[key] = query[key].toString();
-    });
-    return queryPatch;
   }
 }

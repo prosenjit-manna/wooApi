@@ -29,4 +29,14 @@ export class  WoocommerceHelperService {
     });
     return queryPatch;
   }
+
+  includeResponseHeader(response) {
+    const headers = {};
+    const rsponseBody = response.body;
+    response.headers.keys().forEach(key => {
+      headers[key] = response.headers.get(key);
+    });
+    rsponseBody['headers'] = headers;
+    return rsponseBody;
+  }
 }
