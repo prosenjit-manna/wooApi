@@ -1,6 +1,9 @@
 # WooApi
 Woocommerce API service with angular
 
+## Api Doc
+https://angular-studio.github.io/wooApi/
+
 ## Enable CORS
 Add this code in function.php
 
@@ -45,6 +48,43 @@ origin: 'https://domain/appwoo/wc-api/v3',
     consumer_key:  'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
     consumer_secret: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
   }
+```
+
+Add new providers in app.module 
+```
+import {
+  WoocommerceProductsService,
+  WoocommerceHelperService
+} from 'ngx-wooapi';
+```
+Add these providers in providers array
+
+```
+providers: [
+  WoocommerceProductsService,
+  WoocommerceHelperService
+]
+```
+
+Now use it in component
+
+```
+import {
+  WoocommerceProductsService
+} from 'ngx-wooapi';
+
+constructor(
+    private wooProducs: WoocommerceProductsService
+  ) { }
+
+  ngOnInit() {
+    this.wooProducs.retriveProducts().subscribe(response => {
+      console.log(response);
+    }, err => {
+      console.log(err);
+    });
+  }
+
 ```
 
 All done have fun :)
