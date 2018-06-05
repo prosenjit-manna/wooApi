@@ -130,3 +130,7 @@ export interface ProductReview {
   email: string;
   verified: boolean;
 }
+
+export interface ProductReviewsResponse {
+  product_reviews: ProductReview[]
+}

@@ -6,9 +6,9 @@ import { catchError, map } from 'rxjs/operators';
 import {
   Product,
   ProductQuery,
-  ProductReview,
   RetriveProductResponse,
-  RetriveProductsResponse
+  RetriveProductsResponse,
+  ProductReviewsResponse
  } from './product.interface';
 import { WoocommerceHelperService } from '../helper.service';
 
@@ -66,18 +66,10 @@ export class WoocommerceProductsService {
   }
 
   /**
-   * Retrive product review
-   */
-  retriveProductReview(product_id: string, reviews_id: string): Observable<ProductReview> {
-    return this.httpClient.get<ProductReview>(`products/${product_id}/reviews/${reviews_id}`)
-    .pipe(catchError(err => this.wooHelper.handleError(err)));
-  }
-
-  /**
    * Retrive product reviews by product id
    */
-  retriveProductReviews(product_id: string): Observable<ProductReview[]> {
-    return this.httpClient.get<ProductReview[]>(`products/${product_id}/reviews`)
+  retriveProductReviews(product_id: string): Observable<ProductReviewsResponse> {
+    return this.httpClient.get<ProductReviewsResponse>(`products/${product_id}/reviews`)
     .pipe(catchError(err => this.wooHelper.handleError(err)));
   }
 }

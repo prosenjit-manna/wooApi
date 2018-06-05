@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WoocommerceProductsService } from '@services/products/woocommerce-products.service';
 
+
 @Component({
   selector: 'wooapi-home',
   templateUrl: './home.component.html',
