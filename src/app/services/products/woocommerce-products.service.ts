@@ -3,12 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
-import { 
+import {
   Product,
-  CreateproductResponse,
   ProductQuery,
   ProductReview,
-  RetriveProductResponse
+  RetriveProductResponse,
+  RetriveProductsResponse
  } from './product.interface';
 import { WoocommerceHelperService } from '../helper.service';
 
@@ -26,23 +26,23 @@ export class WoocommerceProductsService {
    * Create a Product
    * @param payload: Product
    */
-  createProduct(payload: Product): Observable<CreateproductResponse> {
-    return this.httpClient.post<CreateproductResponse>(`products`, payload)
+  createProduct(payload: Product): Observable<RetriveProductResponse> {
+    return this.httpClient.post<RetriveProductResponse>(`products`, payload)
       .pipe(catchError(err => this.wooHelper.handleError(err)));
   }
 
   /**
    * Retrive a product
    */
-  retriveProduct(id: number): Observable<Product> {
-    return this.httpClient.get(`products/${id}`)
+  retriveProduct(id: number): Observable<RetriveProductResponse> {
+    return this.httpClient.get<RetriveProductResponse>(`products/${id}`)
       .pipe(catchError(err => this.wooHelper.handleError(err)));
   }
 
   /**
    * Retrive list of product
    */
-  retriveProducts(query: ProductQuery = {}): Observable<RetriveProductResponse> {
+  retriveProducts(query: ProductQuery = {}): Observable<RetriveProductsResponse> {
     return this.httpClient.get(`products`, {params: this.wooHelper.includeQuery(query), observe: 'response'})
       .pipe(
         map(value => this.wooHelper.includeResponseHeader(value)),
@@ -52,16 +52,16 @@ export class WoocommerceProductsService {
   /**
    * Update Product
    */
-  updateProduct(id: number, payload: Product): Observable<Product> {
-    return this.httpClient.put(`products/${id}`, payload)
+  updateProduct(id: number, payload: Product): Observable<RetriveProductResponse> {
+    return this.httpClient.put<RetriveProductResponse>(`products/${id}`, payload)
     .pipe(catchError(err => this.wooHelper.handleError(err)));
   }
 
   /**
    * Update Product
    */
-  deleteProduct(id: number): Observable<Product> {
-    return this.httpClient.delete(`products/${id}`)
+  deleteProduct(id: number): Observable<RetriveProductResponse> {
+    return this.httpClient.delete<RetriveProductResponse>(`products/${id}`)
     .pipe(catchError(err => this.wooHelper.handleError(err)));
   }
 
