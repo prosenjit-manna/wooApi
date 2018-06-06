@@ -1,6 +1,15 @@
 # WooApi
 Woocommerce API service with angular
 
+##Supports angular version
+- master - Angular 6
+- v5 - Angular 5 (Not released)
+
+#Supports woocommerce API version
+- Supports V3 version
+
+Tested with https protocol. Wordpress version 4.9.6 and WooCommerce version 3.4.1
+
 ## Api Doc
 https://angular-studio.github.io/wooApi/
 
