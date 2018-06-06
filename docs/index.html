@@ -66,6 +66,8 @@
 			<div class="tsd-panel tsd-typography">
 				<h1 id="wooapi">WooApi</h1>
 				<p>Woocommerce API service with angular</p>
+				<h2 id="api-doc">Api Doc</h2>
+				<p><a href="https://angular-studio.github.io/wooApi/">https://angular-studio.github.io/wooApi/</a></p>
 				<h2 id="enable-cors">Enable CORS</h2>
 				<p>Add this code in function.php</p>
 				<pre><code>add_action( <span class="hljs-string">'init'</span>, <span class="hljs-string">'nt_cors_enable'</span> );
@@ -101,6 +103,33 @@
     <span class="hljs-attribute">consumer_key</span>:  <span class="hljs-string">'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'</span>,
     <span class="hljs-attribute">consumer_secret</span>: <span class="hljs-string">'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'</span>
   }
+</code></pre><p>Add new providers in app.module </p>
+				<pre><code><span class="hljs-keyword">import</span> {
+  WoocommerceProductsService,
+  WoocommerceHelperService
+} <span class="hljs-keyword">from</span> <span class="hljs-string">'ngx-wooapi'</span>;
+</code></pre><p>Add these providers in providers array</p>
+				<pre><code><span class="hljs-attribute">providers</span>:<span class="hljs-meta"> [
+  WoocommerceProductsService,
+  WoocommerceHelperService
+]</span>
+</code></pre><p>Now use it in component</p>
+				<pre><code>import <span class="hljs-comment">{
+  WoocommerceProductsService
+}</span> <span class="hljs-keyword">from</span> <span class="hljs-string">'ngx-wooapi'</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+    <span class="hljs-keyword">private</span> wooProducs: WoocommerceProductsService
+  )</span> <span class="hljs-comment">{ }</span>
+
+  <span class="hljs-title">ngOnInit</span><span class="hljs-params">()</span> <span class="hljs-comment">{
+    this.wooProducs.retriveProducts().subscribe(response =&gt; {
+      console.log(response);
+    }</span>, <span class="hljs-title">err</span> =&gt; <span class="hljs-comment">{
+      console.log(err);
+    }</span>);</span>
+  }
+
 </code></pre><p>All done have fun :)</p>
 			</div>
 		</div>

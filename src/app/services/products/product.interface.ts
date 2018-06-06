@@ -1,79 +1,79 @@
 export interface Product {
   id?: number;
   title?: string;
-  name: string;
-  created_at: string;
-  updated_at: string;
-  type: string;
-  status: string;
-  downloadable: boolean;
-  virtual: boolean;
-  permalink: string;
-  sku: string;
-  price: string;
-  regular_price: string;
-  sale_price: string;
-  sale_price_dates_from: string;
-  sale_price_dates_to: string;
-  price_html: string;
-  taxable: boolean;
-  tax_status: string;
-  tax_class: string;
-  managing_stock: boolean;
-  stock_quantity: number;
-  in_stock: boolean;
-  backorders_allowed: boolean;
-  backordered: boolean;
-  backorders: any;
-  sold_individually: boolean;
-  purchaseable: boolean;
-  featured: boolean;
-  visible: boolean;
-  catalog_visibility: boolean;
-  on_sale: boolean;
-  weight: string;
-  dimensions: Array<any>;
-  shipping_required: boolean;
-  shipping_taxable: boolean;
-  shipping_class: string;
-  shipping_class_id: number;
-  description: string;
-  enable_html_description: string;
-  short_description: string;
-  enable_html_short_description: string;
-  reviews_allowed: boolean;
-  average_rating: string;
-  rating_count: number;
-  related_ids: Array<number>;
-  upsell_ids: Array<number>;
-  cross_sell_ids: Array<any>;
-  parent_id: number;
-  categories: Array<any>;
-  tags: Array<string>;
-  images: Array<any>;
-  featured_src: string;
-  attributes: Array<any>;
-  default_attributes: Array<any>;
-  downloads: Array<any>;
-  download_limit: number;
-  download_expiry: number;
-  download_type: string;
-  purchase_note: string;
-  total_sales: number;
-  variations: Array<any>;
-  parent: Array<any>;
-  product_url: string;
-  button_text: string;
-  menu_order: number;
+  name?: string;
+  created_at?: string;
+  updated_at?: string;
+  type?: string;
+  status?: string;
+  downloadable?: boolean;
+  virtual?: boolean;
+  permalink?: string;
+  sku?: string;
+  price?: string;
+  regular_price?: string;
+  sale_price?: string;
+  sale_price_dates_from?: string;
+  sale_price_dates_to?: string;
+  price_html?: string;
+  taxable?: boolean;
+  tax_status?: string;
+  tax_class?: string;
+  managing_stock?: boolean;
+  stock_quantity?: number;
+  in_stock?: boolean;
+  backorders_allowed?: boolean;
+  backordered?: boolean;
+  backorders?: any;
+  sold_individually?: boolean;
+  purchaseable?: boolean;
+  featured?: boolean;
+  visible?: boolean;
+  catalog_visibility?: boolean;
+  on_sale?: boolean;
+  weight?: string;
+  dimensions?: Array<any>;
+  shipping_required?: boolean;
+  shipping_taxable?: boolean;
+  shipping_class?: string;
+  shipping_class_id?: number;
+  description?: string;
+  enable_html_description?: string;
+  short_description?: string;
+  enable_html_short_description?: string;
+  reviews_allowed?: boolean;
+  average_rating?: string;
+  rating_count?: number;
+  related_ids?: Array<number>;
+  upsell_ids?: Array<number>;
+  cross_sell_ids?: Array<any>;
+  parent_id?: number;
+  categories?: Array<any>;
+  tags?: Array<string>;
+  images?: Array<any>;
+  featured_src?: string;
+  attributes?: Array<any>;
+  default_attributes?: Array<any>;
+  downloads?: Array<any>;
+  download_limit?: number;
+  download_expiry?: number;
+  download_type?: string;
+  purchase_note?: string;
+  total_sales?: number;
+  variations?: Array<any>;
+  parent?: Array<any>;
+  product_url?: string;
+  button_text?: string;
+  menu_order?: number;
 }
 
 export interface RetriveProductResponse {
-  product: Product;
+  product?: Product;
 }
 
 export interface RetriveProductsResponse {
-  products: Product[];
-  headers: Array<any>;
+  products?: Product[];
+  headers?: Array<any>;
 }
 
 
@@ -121,16 +121,16 @@ export interface ProductQuery {
 }
 
 export interface ProductReview {
-  id: number;
-  review: string;
-  date_created: Date;
-  date_created_gmt: Date;
-  rating: number;
-  name: string;
-  email: string;
-  verified: boolean;
+  id?: number;
+  review?: string;
+  date_created?: Date;
+  date_created_gmt?: Date;
+  rating?: number;
+  name?: string;
+  email?: string;
+  verified?: boolean;
 }
 
 export interface ProductReviewsResponse {
-  product_reviews: ProductReview[]
+  product_reviews?: ProductReview[]
 }
