@@ -67,11 +67,11 @@ export interface Product {
   menu_order?: number;
 }
 
-export interface RetriveProductResponse {
+export interface RetrieveProductResponse {
   product?: Product;
 }
 
-export interface RetriveProductsResponse {
+export interface RetrieveProductsResponse {
   products?: Product[];
   headers?: Array<any>;
 }
@@ -132,5 +132,13 @@ export interface ProductReview {
 }
 
 export interface ProductReviewsResponse {
-  product_reviews?: ProductReview[]
+  product_reviews?: ProductReview[];
+}
+
+export interface ProductCountQuery {
+  type?: string;
+  category?: string;
+  tag?: string;
+  shipping_class?: string;
+  sku?: string;
 }

@@ -21,7 +21,7 @@ export class  WoocommerceHelperService {
     return Observable.throw({message: 'Something bad happened; please try again later.'});
   }
 
-  includeQuery(query) {
+  includeQuery(query = {}) {
     const queryPatch = {};
     Object.keys(query).forEach(key => {
       queryPatch[key] = query[key].toString();
