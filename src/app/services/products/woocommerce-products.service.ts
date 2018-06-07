@@ -13,9 +13,7 @@ import {
  } from './product.interface';
 import { WoocommerceHelperService } from '../helper.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class WoocommerceProductsService {
 
   constructor(

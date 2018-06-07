@@ -6,9 +6,7 @@ import { catchError } from 'rxjs/operators';
 import { WoocommerceHelperService } from '../helper.service';
 import { Customer } from '@services/customer/customer.interface';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class WoocommerceCustomerService {
 
   constructor(

@@ -17,19 +17,19 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.activatedRoute.queryParams
-      .pipe(
-        switchMap(params => this.wooProducs.retrieveProductCount(params))
-      ).subscribe(response => {
-        console.log(response);
-      }, err => {
-        console.log(err);
-      });
-    // this.wooProducs.retriveProductCount().subscribe(response => {
-    //   console.log(response);
-    // }, err => {
-    //   console.log(err);
-    // });
+    // this.activatedRoute.queryParams
+    //   .pipe(
+    //     switchMap(params => this.wooProducs.retrieveProductCount(params))
+    //   ).subscribe(response => {
+    //     console.log(response);
+    //   }, err => {
+    //     console.log(err);
+    //   });
+    this.wooProducs.retrieveProducts().subscribe(response => {
+      console.log(response);
+    }, err => {
+      console.log(err);
+    });
   }
 
 }

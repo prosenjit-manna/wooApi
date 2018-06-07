@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
-import { throwError, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class  WoocommerceHelperService {
@@ -15,10 +15,10 @@ export class  WoocommerceHelperService {
       // The backend returned an unsuccessful response code.
       // The response body may contain clues as to what went wrong,
         console.log('Backend response', error);
-        return throwError(error.error);
+        return Observable.throw(error.error);
     }
     // return an observable with a user-facing error message
-    return throwError({message: 'Something bad happened; please try again later.'});
+    return Observable.throw({message: 'Something bad happened; please try again later.'});
   }
 
   includeQuery(query = {}) {
