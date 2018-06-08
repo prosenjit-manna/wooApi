@@ -29,13 +29,18 @@ export class  WoocommerceHelperService {
     return queryPatch;
   }
 
-  includeResponseHeader(response) {
+  includeResponseHeader(response, responseBodyKey?: string) {
     const headers = {};
-    const rsponseBody = response.body;
     response.headers.keys().forEach(key => {
       headers[key] = response.headers.get(key);
     });
-    rsponseBody['headers'] = headers;
-    return rsponseBody;
+    let responseData = {};
+    if (responseBodyKey) {
+      responseData[responseBodyKey] = response.body;
+    } else {
+      responseData = response.body;
+    }
+    responseData['headers'] = headers;
+    return responseData;
   }
 }
