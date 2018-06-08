@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { WoocommerceProductsService } from '@services/products/woocommerce-products.service';
 import { switchMap } from 'rxjs/operators';
+
+import { WoocommerceProductsService } from '@services/products/woocommerce-products.service';
 
 
 @Component({
@@ -17,19 +18,19 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.activatedRoute.queryParams
-    //   .pipe(
-    //     switchMap(params => this.wooProducs.retrieveProductCount(params))
-    //   ).subscribe(response => {
-    //     console.log(response);
-    //   }, err => {
-    //     console.log(err);
-    //   });
-    this.wooProducs.retrieveProducts().subscribe(response => {
-      console.log(response);
-    }, err => {
-      console.log(err);
-    });
+    this.activatedRoute.queryParams
+      .pipe(
+        switchMap(params => this.wooProducs.retrieveProducts(params))
+      ).subscribe(response => {
+        console.log(response);
+      }, err => {
+        console.log(err);
+      });
+    // this.wooProducs.retrieveProducts().subscribe(response => {
+    //   console.log(response);
+    // }, err => {
+    //   console.log(err);
+    // });
   }
 
 }
