@@ -11,7 +11,7 @@ Woocommerce API service with angular
 Tested with https protocol. Wordpress version 4.9.6 and WooCommerce version 3.4.1
 
 ## Api Doc
-https://angular-studio.github.io/wooApi/
+https://angular-studio.github.io/wooApi/v5
 
 ## Enable CORS
 Add this code in function.php
@@ -34,7 +34,9 @@ function nt_cors_enable() {
 
 ## Setup instruction
 
-- `yarn add ngx-wooapi@5.x.x` or `npm install --save ngx-wooapi@5.x.x`
+- `yarn add ngx-wooapi@5.x.x` or `npm install --save ngx-wooapi@5.x.x` for angular 5 support
+- `yarn add ngx-wooapi@6.x.x` or `npm install --save ngx-wooapi@6.x.x` for angular 6 support
+- 
 - Add interceptor 
 
 ```

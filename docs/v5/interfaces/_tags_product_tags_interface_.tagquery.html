@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ProductReview | ngx-wooapi</title>
+	<title>TagQuery | ngx-wooapi</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,13 +56,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_products_product_interface_.html">&quot;products/product.interface&quot;</a>
+					<a href="../modules/_tags_product_tags_interface_.html">&quot;tags/product-tags.interface&quot;</a>
 				</li>
 				<li>
-					<a href="_products_product_interface_.productreview.html">ProductReview</a>
+					<a href="_tags_product_tags_interface_.tagquery.html">TagQuery</a>
 				</li>
 			</ul>
-			<h1>Interface ProductReview</h1>
+			<h1>Interface TagQuery</h1>
 		</div>
 	</div>
 </header>
@@ -73,7 +73,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">ProductReview</span>
+						<span class="target">TagQuery</span>
 					</li>
 				</ul>
 			</section>
@@ -84,14 +84,18 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_products_product_interface_.productreview.html#date_created" class="tsd-kind-icon">date_<wbr>created</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_products_product_interface_.productreview.html#date_created_gmt" class="tsd-kind-icon">date_<wbr>created_<wbr>gmt</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_products_product_interface_.productreview.html#email" class="tsd-kind-icon">email</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_products_product_interface_.productreview.html#id" class="tsd-kind-icon">id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_products_product_interface_.productreview.html#name" class="tsd-kind-icon">name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_products_product_interface_.productreview.html#rating" class="tsd-kind-icon">rating</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_products_product_interface_.productreview.html#review" class="tsd-kind-icon">review</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_products_product_interface_.productreview.html#verified" class="tsd-kind-icon">verified</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_tags_product_tags_interface_.tagquery.html#context" class="tsd-kind-icon">context</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_tags_product_tags_interface_.tagquery.html#exclude" class="tsd-kind-icon">exclude</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_tags_product_tags_interface_.tagquery.html#hide_empty" class="tsd-kind-icon">hide_<wbr>empty</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_tags_product_tags_interface_.tagquery.html#include" class="tsd-kind-icon">include</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_tags_product_tags_interface_.tagquery.html#offset" class="tsd-kind-icon">offset</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_tags_product_tags_interface_.tagquery.html#order" class="tsd-kind-icon">order</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_tags_product_tags_interface_.tagquery.html#orderby" class="tsd-kind-icon">orderby</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_tags_product_tags_interface_.tagquery.html#page" class="tsd-kind-icon">page</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_tags_product_tags_interface_.tagquery.html#per_page" class="tsd-kind-icon">per_<wbr>page</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_tags_product_tags_interface_.tagquery.html#product" class="tsd-kind-icon">product</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_tags_product_tags_interface_.tagquery.html#search" class="tsd-kind-icon">search</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_tags_product_tags_interface_.tagquery.html#slug" class="tsd-kind-icon">slug</a></li>
 							</ul>
 						</section>
 					</div>
@@ -100,82 +104,122 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="date_created" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> date_<wbr>created</h3>
-					<div class="tsd-signature tsd-kind-icon">date_<wbr>created<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
+					<a name="context" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> context</h3>
+					<div class="tsd-signature tsd-kind-icon">context<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/angular-studio/wooApi/blob/22d15f2/src/app/services/products/product.interface.ts#L120">products/product.interface.ts:120</a></li>
+							<li>Defined in <a href="https://github.com/angular-studio/wooApi/blob/22d15f2/src/app/services/tags/product-tags.interface.ts#L24">tags/product-tags.interface.ts:24</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="date_created_gmt" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> date_<wbr>created_<wbr>gmt</h3>
-					<div class="tsd-signature tsd-kind-icon">date_<wbr>created_<wbr>gmt<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
+					<a name="exclude" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> exclude</h3>
+					<div class="tsd-signature tsd-kind-icon">exclude<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/angular-studio/wooApi/blob/22d15f2/src/app/services/products/product.interface.ts#L121">products/product.interface.ts:121</a></li>
+							<li>Defined in <a href="https://github.com/angular-studio/wooApi/blob/22d15f2/src/app/services/tags/product-tags.interface.ts#L28">tags/product-tags.interface.ts:28</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="email" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> email</h3>
-					<div class="tsd-signature tsd-kind-icon">email<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="hide_empty" class="tsd-anchor"></a>
+					<h3>hide_<wbr>empty</h3>
+					<div class="tsd-signature tsd-kind-icon">hide_<wbr>empty<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/angular-studio/wooApi/blob/22d15f2/src/app/services/products/product.interface.ts#L124">products/product.interface.ts:124</a></li>
+							<li>Defined in <a href="https://github.com/angular-studio/wooApi/blob/22d15f2/src/app/services/tags/product-tags.interface.ts#L33">tags/product-tags.interface.ts:33</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="id" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> id</h3>
-					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="include" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> include</h3>
+					<div class="tsd-signature tsd-kind-icon">include<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/angular-studio/wooApi/blob/22d15f2/src/app/services/products/product.interface.ts#L118">products/product.interface.ts:118</a></li>
+							<li>Defined in <a href="https://github.com/angular-studio/wooApi/blob/22d15f2/src/app/services/tags/product-tags.interface.ts#L29">tags/product-tags.interface.ts:29</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="name" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> name</h3>
-					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="offset" class="tsd-anchor"></a>
+					<h3>offset</h3>
+					<div class="tsd-signature tsd-kind-icon">offset<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/angular-studio/wooApi/blob/22d15f2/src/app/services/products/product.interface.ts#L123">products/product.interface.ts:123</a></li>
+							<li>Defined in <a href="https://github.com/angular-studio/wooApi/blob/22d15f2/src/app/services/tags/product-tags.interface.ts#L30">tags/product-tags.interface.ts:30</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="rating" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> rating</h3>
-					<div class="tsd-signature tsd-kind-icon">rating<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="order" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> order</h3>
+					<div class="tsd-signature tsd-kind-icon">order<span class="tsd-signature-symbol">:</span> <a href="../enums/_tags_product_tags_interface_.tagorder.html" class="tsd-signature-type">TagOrder</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/angular-studio/wooApi/blob/22d15f2/src/app/services/products/product.interface.ts#L122">products/product.interface.ts:122</a></li>
+							<li>Defined in <a href="https://github.com/angular-studio/wooApi/blob/22d15f2/src/app/services/tags/product-tags.interface.ts#L31">tags/product-tags.interface.ts:31</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="review" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> review</h3>
-					<div class="tsd-signature tsd-kind-icon">review<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="orderby" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> orderby</h3>
+					<div class="tsd-signature tsd-kind-icon">orderby<span class="tsd-signature-symbol">:</span> <a href="../enums/_tags_product_tags_interface_.tagorderby.html" class="tsd-signature-type">TagOrderBy</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/angular-studio/wooApi/blob/22d15f2/src/app/services/products/product.interface.ts#L119">products/product.interface.ts:119</a></li>
+							<li>Defined in <a href="https://github.com/angular-studio/wooApi/blob/22d15f2/src/app/services/tags/product-tags.interface.ts#L32">tags/product-tags.interface.ts:32</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="verified" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> verified</h3>
-					<div class="tsd-signature tsd-kind-icon">verified<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<a name="page" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> page</h3>
+					<div class="tsd-signature tsd-kind-icon">page<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/angular-studio/wooApi/blob/22d15f2/src/app/services/products/product.interface.ts#L125">products/product.interface.ts:125</a></li>
+							<li>Defined in <a href="https://github.com/angular-studio/wooApi/blob/22d15f2/src/app/services/tags/product-tags.interface.ts#L25">tags/product-tags.interface.ts:25</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="per_page" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> per_<wbr>page</h3>
+					<div class="tsd-signature tsd-kind-icon">per_<wbr>page<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/angular-studio/wooApi/blob/22d15f2/src/app/services/tags/product-tags.interface.ts#L26">tags/product-tags.interface.ts:26</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="product" class="tsd-anchor"></a>
+					<h3>product</h3>
+					<div class="tsd-signature tsd-kind-icon">product<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/angular-studio/wooApi/blob/22d15f2/src/app/services/tags/product-tags.interface.ts#L34">tags/product-tags.interface.ts:34</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="search" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> search</h3>
+					<div class="tsd-signature tsd-kind-icon">search<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/angular-studio/wooApi/blob/22d15f2/src/app/services/tags/product-tags.interface.ts#L27">tags/product-tags.interface.ts:27</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="slug" class="tsd-anchor"></a>
+					<h3>slug</h3>
+					<div class="tsd-signature tsd-kind-icon">slug<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/angular-studio/wooApi/blob/22d15f2/src/app/services/tags/product-tags.interface.ts#L35">tags/product-tags.interface.ts:35</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -202,13 +246,13 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_helper_service_.html">"helper.service"</a>
 					</li>
-					<li class="current tsd-kind-external-module">
+					<li class=" tsd-kind-external-module">
 						<a href="../modules/_products_product_interface_.html">"products/product.interface"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_products_woocommerce_products_service_.html">"products/woocommerce-<wbr>products.service"</a>
 					</li>
-					<li class=" tsd-kind-external-module">
+					<li class="current tsd-kind-external-module">
 						<a href="../modules/_tags_product_tags_interface_.html">"tags/product-<wbr>tags.interface"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -222,56 +266,59 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-enum tsd-parent-kind-external-module">
-						<a href="../enums/_products_product_interface_.productorder.html" class="tsd-kind-icon">Product<wbr>Order</a>
+						<a href="../enums/_tags_product_tags_interface_.tagorder.html" class="tsd-kind-icon">Tag<wbr>Order</a>
 					</li>
 					<li class=" tsd-kind-enum tsd-parent-kind-external-module">
-						<a href="../enums/_products_product_interface_.productorderby.html" class="tsd-kind-icon">Product<wbr>Order<wbr>By</a>
+						<a href="../enums/_tags_product_tags_interface_.tagorderby.html" class="tsd-kind-icon">Tag<wbr>Order<wbr>By</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_products_product_interface_.product.html" class="tsd-kind-icon">Product</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_products_product_interface_.productquery.html" class="tsd-kind-icon">Product<wbr>Query</a>
+						<a href="_tags_product_tags_interface_.producttag.html" class="tsd-kind-icon">Product<wbr>Tag</a>
 					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_products_product_interface_.productreview.html" class="tsd-kind-icon">Product<wbr>Review</a>
+						<a href="_tags_product_tags_interface_.tagquery.html" class="tsd-kind-icon">Tag<wbr>Query</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_products_product_interface_.productreview.html#date_created" class="tsd-kind-icon">date_<wbr>created</a>
+								<a href="_tags_product_tags_interface_.tagquery.html#context" class="tsd-kind-icon">context</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_products_product_interface_.productreview.html#date_created_gmt" class="tsd-kind-icon">date_<wbr>created_<wbr>gmt</a>
+								<a href="_tags_product_tags_interface_.tagquery.html#exclude" class="tsd-kind-icon">exclude</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_products_product_interface_.productreview.html#email" class="tsd-kind-icon">email</a>
+								<a href="_tags_product_tags_interface_.tagquery.html#hide_empty" class="tsd-kind-icon">hide_<wbr>empty</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_products_product_interface_.productreview.html#id" class="tsd-kind-icon">id</a>
+								<a href="_tags_product_tags_interface_.tagquery.html#include" class="tsd-kind-icon">include</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_products_product_interface_.productreview.html#name" class="tsd-kind-icon">name</a>
+								<a href="_tags_product_tags_interface_.tagquery.html#offset" class="tsd-kind-icon">offset</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_products_product_interface_.productreview.html#rating" class="tsd-kind-icon">rating</a>
+								<a href="_tags_product_tags_interface_.tagquery.html#order" class="tsd-kind-icon">order</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_products_product_interface_.productreview.html#review" class="tsd-kind-icon">review</a>
+								<a href="_tags_product_tags_interface_.tagquery.html#orderby" class="tsd-kind-icon">orderby</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_products_product_interface_.productreview.html#verified" class="tsd-kind-icon">verified</a>
+								<a href="_tags_product_tags_interface_.tagquery.html#page" class="tsd-kind-icon">page</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_tags_product_tags_interface_.tagquery.html#per_page" class="tsd-kind-icon">per_<wbr>page</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_tags_product_tags_interface_.tagquery.html#product" class="tsd-kind-icon">product</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_tags_product_tags_interface_.tagquery.html#search" class="tsd-kind-icon">search</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_tags_product_tags_interface_.tagquery.html#slug" class="tsd-kind-icon">slug</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_products_product_interface_.productreviewsresponse.html" class="tsd-kind-icon">Product<wbr>Reviews<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_products_product_interface_.retrieveproductsresponse.html" class="tsd-kind-icon">Retrieve<wbr>Products<wbr>Response</a>
-					</li>
 				</ul>
 			</nav>
 		</div>
