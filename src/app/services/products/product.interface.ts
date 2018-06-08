@@ -128,11 +128,3 @@ export interface ProductReview {
 export interface ProductReviewsResponse {
   product_reviews?: ProductReview[];
 }
-
-// export interface ProductCountQuery {
-//   type?: string;
-//   category?: string;
-//   tag?: string;
-//   shipping_class?: string;
-//   sku?: string;
-// }

@@ -48,18 +48,6 @@ export class WoocommerceProductsService {
         catchError(err => this.wooHelper.handleError(err)));
   }
 
-  // retrieveProductCount(query?: ProductCountQuery) {
-  //   return this.httpClient.get(`products/count`,
-  //   {
-  //     params: this.wooHelper.includeQuery(query),
-  //     observe: 'response'
-  //   })
-  //   .pipe(
-  //     map(value => this.wooHelper.includeResponseHeader(value)),
-  //     catchError(err => this.wooHelper.handleError(err))
-  //   );
-  // }
-
   /**
    * Update Product
    */
