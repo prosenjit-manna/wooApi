@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 
 import {
   ProductCategory,
-  ProductCategoryImage,
   CategoryQuery
  } from './product-categories.interface';
 import { WoocommerceHelperService } from '../helper.service';
@@ -50,15 +49,15 @@ export class WoocommerceProductsService {
   /**
    * Update Category
    */
-  updateProduct(id: number, payload: ProductCategory): Observable<ProductCategory> {
+  updateCategory(id: number, payload: ProductCategory): Observable<ProductCategory> {
     return this.httpClient.put<ProductCategory>(`categories/${id}`, payload)
     .pipe(catchError(err => this.wooHelper.handleError(err)));
   }
 
   /**
-   * Update Category
+   * Delete Category
    */
-  deleteProduct(id: number): Observable<ProductCategory> {
+  deleteCategory(id: number): Observable<ProductCategory> {
     return this.httpClient.delete<ProductCategory>(`categories/${id}`)
     .pipe(catchError(err => this.wooHelper.handleError(err)));
   }
