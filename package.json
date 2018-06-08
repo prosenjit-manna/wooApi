@@ -1,12 +1,21 @@
 {
   "name": "ngx-wooapi",
   "version": "5.0.0",
+  "keywords": [
+    "Woocommerce Api",
+    "Angular Woocommerce Api wrapper",
+    "Angular Woocommerce wraper"
+  ],
+  "author": {
+    "name": "Angular Studio",
+    "url": "https://angular-studio.io"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng-packagr -p ng-package.json",
     "lint": "ng lint",
-    "doc": "typedoc --out ./docs/ ./src/app/services/ --module system && cp .nojekyll ./docs/"
+    "doc": "typedoc --out ./docs/v5 ./src/app/services/ --module system && cp .nojekyll ./docs/"
   },
   "private": false,
   "dependencies": {

@@ -3,7 +3,7 @@ Woocommerce API service with angular
 
 ##Supports angular version
 - master - Angular 6
-- v5 - Angular 5 (Not released)
+- v5 - Angular 5
 
 #Supports woocommerce API version
 - Supports V3 version
@@ -34,7 +34,7 @@ function nt_cors_enable() {
 
 ## Setup instruction
 
-- `yarn add ngx-wooapi` or `npm install --save ngx-wooapi`
+- `yarn add ngx-wooapi@5.x.x` or `npm install --save ngx-wooapi@5.x.x`
 - Add interceptor 
 
 ```
