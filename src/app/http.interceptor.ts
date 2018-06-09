@@ -38,11 +38,17 @@ export class AppInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // const auth = this.injector.get(AuthService);
+    let requestUrl = '';
+    if (request.url.includes('api')) {
+      requestUrl = `${environment.origin}/${request.url}`;
+    } else {
+      requestUrl = `${environment.origin}${environment.wcEndpoint}/${request.url}${this.includeWooAuth(request.url)}`;
+    }
     const authRequest = request.clone({
       setHeaders: {
         // Authorization: `Bearer ${auth.getToken()}`
       },
-      url: `${environment.origin}/${request.url}${this.includeWooAuth(request.url)}`
+      url: requestUrl
     });
 
     return next.handle(authRequest)
