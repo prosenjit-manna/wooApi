@@ -15,7 +15,8 @@
     "start": "ng serve",
     "build": "ng-packagr -p ng-package.json",
     "lint": "ng lint",
-    "doc": "typedoc --out ./docs/v5 ./src/app/services/ --module system && cp .nojekyll ./docs/"
+    "doc": "typedoc --out ./docs/v5 ./src/app/services/ --module system && cp .nojekyll ./docs/",
+    "docs": "./tasks/docs.sh"
   },
   "private": false,
   "dependencies": {
