@@ -77,7 +77,7 @@
 				</ul>
 				<p>Tested with https protocol. Wordpress version 4.9.6 and WooCommerce version 3.4.1</p>
 				<h2 id="api-doc">Api Doc</h2>
-				<p><a href="https://angular-studio.github.io/wooApi/">https://angular-studio.github.io/wooApi/</a></p>
+				<p><a href="https://angular-studio.github.io/wooApi/v5">https://angular-studio.github.io/wooApi/v5</a></p>
 				<h2 id="enable-cors">Enable CORS</h2>
 				<p>Add this code in function.php</p>
 				<pre><code>add_action( <span class="hljs-string">'init'</span>, <span class="hljs-string">'nt_cors_enable'</span> );
@@ -95,7 +95,9 @@
 }
 </code></pre><h2 id="setup-instruction">Setup instruction</h2>
 				<ul>
-					<li><code>yarn add ngx-wooapi@5.x.x</code> or <code>npm install --save ngx-wooapi@5.x.x</code></li>
+					<li><code>yarn add ngx-wooapi@5.x.x</code> or <code>npm install --save ngx-wooapi@5.x.x</code> for angular 5 support</li>
+					<li><code>yarn add ngx-wooapi@6.x.x</code> or <code>npm install --save ngx-wooapi@6.x.x</code> for angular 6 support</li>
+					<li></li>
 					<li>Add interceptor </li>
 				</ul>
 				<pre><code><span class="hljs-keyword">import</span> {
@@ -210,6 +212,12 @@
 				<ul>
 					<li class="globals  ">
 						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_auth_auth_interface_.html">"auth/auth.interface"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_auth_auth_service_.html">"auth/auth.service"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="modules/_categories_product_categories_interface_.html">"categories/product-<wbr>categories.interface"</a>
