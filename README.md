@@ -1,19 +1,25 @@
 # WooApi
 Woocommerce API service with angular
 
-##Supports angular version
+## Supports angular version
 - master - Angular 6
 - v5 - Angular 5
 
-#Supports woocommerce API version
+## Supports woocommerce API version
 - Supports V3 version
 
 Tested with https protocol. Wordpress version 4.9.6 and WooCommerce version 3.4.1
 
+## Setup instruction
+- [Backend setup](#Backend_Setup_instruction_19)
+- [Frontend setup](#Frontend_Setup_instruction_38)
+
 ## Api Doc
 https://angular-studio.github.io/wooApi/v5
 
-## Enable CORS
+## Backend Setup instruction
+
+### Enable CORS
 Add this code in function.php
 
 ```
@@ -32,7 +38,12 @@ function nt_cors_enable() {
 }
 ```
 
-## Setup instruction
+### Auth service dependency
+- Install JSON API user https://wordpress.org/plugins/json-api-user/, https://wordpress.org/plugins/json-api/
+- Install JWT support https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/
+
+
+### Frontend Setup instruction
 
 - `yarn add ngx-wooapi@5.x.x` or `npm install --save ngx-wooapi@5.x.x` for angular 5 support
 - `yarn add ngx-wooapi@6.x.x` or `npm install --save ngx-wooapi@6.x.x` for angular 6 support

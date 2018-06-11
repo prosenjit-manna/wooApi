@@ -66,19 +66,25 @@
 			<div class="tsd-panel tsd-typography">
 				<h1 id="wooapi">WooApi</h1>
 				<p>Woocommerce API service with angular</p>
-				<p>##Supports angular version</p>
+				<h2 id="supports-angular-version">Supports angular version</h2>
 				<ul>
 					<li>master - Angular 6</li>
 					<li>v5 - Angular 5</li>
 				</ul>
-				<p>#Supports woocommerce API version</p>
+				<h2 id="supports-woocommerce-api-version">Supports woocommerce API version</h2>
 				<ul>
 					<li>Supports V3 version</li>
 				</ul>
 				<p>Tested with https protocol. Wordpress version 4.9.6 and WooCommerce version 3.4.1</p>
+				<h2 id="setup-instruction">Setup instruction</h2>
+				<ul>
+					<li><a href="#Backend_Setup_instruction_19">Backend setup</a></li>
+					<li><a href="#Frontend_Setup_instruction_38">Frontend setup</a></li>
+				</ul>
 				<h2 id="api-doc">Api Doc</h2>
 				<p><a href="https://angular-studio.github.io/wooApi/v5">https://angular-studio.github.io/wooApi/v5</a></p>
-				<h2 id="enable-cors">Enable CORS</h2>
+				<h2 id="backend-setup-instruction">Backend Setup instruction</h2>
+				<h3 id="enable-cors">Enable CORS</h3>
 				<p>Add this code in function.php</p>
 				<pre><code>add_action( <span class="hljs-string">'init'</span>, <span class="hljs-string">'nt_cors_enable'</span> );
 
@@ -93,7 +99,12 @@
     <span class="hljs-keyword">exit</span>();
   }
 }
-</code></pre><h2 id="setup-instruction">Setup instruction</h2>
+</code></pre><h3 id="auth-service-dependency">Auth service dependency</h3>
+				<ul>
+					<li>Install JSON API user <a href="https://wordpress.org/plugins/json-api-user/">https://wordpress.org/plugins/json-api-user/</a>, <a href="https://wordpress.org/plugins/json-api/">https://wordpress.org/plugins/json-api/</a></li>
+					<li>Install JWT support <a href="https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/">https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/</a></li>
+				</ul>
+				<h3 id="frontend-setup-instruction">Frontend Setup instruction</h3>
 				<ul>
 					<li><code>yarn add ngx-wooapi@5.x.x</code> or <code>npm install --save ngx-wooapi@5.x.x</code> for angular 5 support</li>
 					<li><code>yarn add ngx-wooapi@6.x.x</code> or <code>npm install --save ngx-wooapi@6.x.x</code> for angular 6 support</li>
