@@ -1,6 +1,9 @@
 {
   "name": "ngx-wooapi",
   "version": "5.0.4",
+  "repository": {
+    "url": "https://github.com/angular-studio/wooApi"
+  },
   "keywords": [
     "Woocommerce Api",
     "Angular Woocommerce Api wrapper",
