@@ -33,14 +33,7 @@ export class HomeComponent implements OnInit {
     // }, err => {
     //   console.log(err);
     // });
-    this.authService.register({
-      nonce: '9a3d6eb071',
-      username: 'aa',
-      email: 'aa@aa.com',
-      user_pass: 'abc123',
-      notify: 'both',
-      display_name: 'abc'
-    })
+    this.authService.retrivePassword('prosenjit@itobuz.com')
     .subscribe(res => {
       console.log(res);
     }, err => {

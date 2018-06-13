@@ -39,7 +39,7 @@ export class AppInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // const auth = this.injector.get(AuthService);
     let requestUrl = '';
-    if (request.url.includes('api')) {
+    if (request.url.includes('api') || request.url.includes('jwt')) {
       requestUrl = `${environment.origin}/${request.url}`;
     } else {
       requestUrl = `${environment.origin}${environment.wcEndpoint}/${request.url}${this.includeWooAuth(request.url)}`;

@@ -40,3 +40,8 @@ export interface RegisterRsponse {
   status: string;
   user_id: number;
 }
+
+export interface LoginPayload {
+  username: string;
+  password: string;
+}

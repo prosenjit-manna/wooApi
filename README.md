@@ -42,6 +42,9 @@ function nt_cors_enable() {
 - Install JSON API user https://wordpress.org/plugins/json-api-user/, https://wordpress.org/plugins/json-api/
 - Install JWT support https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/
 
+After installatiion activate user controller from JSON-API settings. Under settings > JSON-API > User > activate.
+
+
 
 ## Frontend Setup instruction
 

@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  origin: 'https://localhost/wooBackend',
+  origin: 'https://laravel-studio.com/appwoo',
   wcEndpoint: '/wp-json/wc/v2',
   woocommerce: {
     consumer_key:  'ck_3d9e10ae2c3f28e4581dc7af181c825923caa8a5',
