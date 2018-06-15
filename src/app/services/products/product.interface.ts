@@ -1,74 +1,68 @@
 export interface Product {
   id?: number;
-  title?: string;
   name?: string;
-  created_at?: string;
-  updated_at?: string;
+  slug?: string;
+  permalink?: string;
+  date_created?: Date;
+  date_created_gmt?: Date;
+  date_modified?: Date;
+  date_modified_gmt?: Date;
   type?: string;
   status?: string;
-  downloadable?: boolean;
-  virtual?: boolean;
-  permalink?: string;
+  featured?: boolean;
+  catalog_visibility?: string;
+  description?: string;
+  short_description?: string;
   sku?: string;
   price?: string;
   regular_price?: string;
   sale_price?: string;
-  sale_price_dates_from?: string;
-  sale_price_dates_to?: string;
+  date_on_sale_from?: Date;
+  date_on_sale_from_gmt?: Date;
+  date_on_sale_to?: Date;
+  date_on_sale_to_gmt?: Date;
   price_html?: string;
-  taxable?: boolean;
+  on_sale?: boolean;
+  purchasable?: boolean;
+  total_sales?: number;
+  virtual?: boolean;
+  downloadable?: boolean;
+  downloads?: Array<any>;
+  download_limit?: number;
+  download_expiry?: number;
+  external_url?: string;
+  button_text?: string;
   tax_status?: string;
   tax_class?: string;
-  managing_stock?: boolean;
+  manage_stock?: boolean;
   stock_quantity?: number;
   in_stock?: boolean;
+  backorders?: boolean;
   backorders_allowed?: boolean;
   backordered?: boolean;
-  backorders?: any;
   sold_individually?: boolean;
-  purchaseable?: boolean;
-  featured?: boolean;
-  visible?: boolean;
-  catalog_visibility?: boolean;
-  on_sale?: boolean;
   weight?: string;
-  dimensions?: Array<any>;
+  dimensions?: any;
   shipping_required?: boolean;
   shipping_taxable?: boolean;
   shipping_class?: string;
   shipping_class_id?: number;
-  description?: string;
-  enable_html_description?: string;
-  short_description?: string;
-  enable_html_short_description?: string;
   reviews_allowed?: boolean;
   average_rating?: string;
   rating_count?: number;
-  related_ids?: Array<number>;
-  upsell_ids?: Array<number>;
+  related_ids?: Array<any>;
+  upsell_ids?: Array<any>;
   cross_sell_ids?: Array<any>;
   parent_id?: number;
+  purchase_note?: string;
   categories?: Array<any>;
-  tags?: Array<string>;
-  images?: Array<any>;
-  featured_src?: string;
+  tags?: Array<any>;
   attributes?: Array<any>;
   default_attributes?: Array<any>;
-  downloads?: Array<any>;
-  download_limit?: number;
-  download_expiry?: number;
-  download_type?: string;
-  purchase_note?: string;
-  total_sales?: number;
   variations?: Array<any>;
-  parent?: Array<any>;
-  product_url?: string;
-  button_text?: string;
+  grouped_products?: Array<string>;
   menu_order?: number;
-}
-
-export interface RetrieveProductResponse {
-  product?: Product;
+  meta_data?: Array<any>;
 }
 
 export interface RetrieveProductsResponse {
@@ -133,12 +127,4 @@ export interface ProductReview {
 
 export interface ProductReviewsResponse {
   product_reviews?: ProductReview[];
-}
-
-export interface ProductCountQuery {
-  type?: string;
-  category?: string;
-  tag?: string;
-  shipping_class?: string;
-  sku?: string;
 }
