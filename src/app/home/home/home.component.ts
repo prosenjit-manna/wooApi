@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 // import { ActivatedRoute } from '@angular/router';
 // import { switchMap } from 'rxjs/operators';
 
-// import { WoocommerceProductsService } from '@services/products/woocommerce-products.service';
+import { WoocommerceProductsService } from '@services/products/woocommerce-products.service';
 import { AuthService } from '@services/auth/auth.service';
 
 
@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
 
   constructor(
     // private activatedRoute: ActivatedRoute,
-    // private wooProducs: WoocommerceProductsService,
+    private wooProducs: WoocommerceProductsService,
     private authService: AuthService
   ) { }
 
@@ -28,12 +28,19 @@ export class HomeComponent implements OnInit {
     //   }, err => {
     //     console.log(err);
     //   });
-    // this.wooProducs.retrieveProducts().subscribe(response => {
-    //   console.log(response);
-    // }, err => {
-    //   console.log(err);
-    // });
-    this.authService.retrivePassword('prosenjit@itobuz.com')
+    this.wooProducs.retrieveProducts().subscribe(response => {
+      console.log(response);
+    }, err => {
+      console.log(err);
+    });
+    this.authService.register({
+      user_pass: 'abc',
+      username: 'abc',
+      email: 'prosenjit+auth2@itobuz.com',
+      notify: 'both',
+      nonce: 'dc60f830f6',
+      display_name: 'a'
+    })
     .subscribe(res => {
       console.log(res);
     }, err => {

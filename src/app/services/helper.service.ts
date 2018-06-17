@@ -29,6 +29,15 @@ export class  WoocommerceHelperService {
     return queryPatch;
   }
 
+  includeEncoded(query = {}) {
+    const params = new FormData();
+    Object.keys(query).forEach((key) => {
+      params.append(key, query[key]);
+    });
+    console.log(params);
+    return params;
+  }
+
   includeResponseHeader(response, responseBodyKey?: string) {
     const headers = {};
     response.headers.keys().forEach(key => {

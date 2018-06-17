@@ -104,6 +104,7 @@
 					<li>Install JSON API user <a href="https://wordpress.org/plugins/json-api-user/">https://wordpress.org/plugins/json-api-user/</a>, <a href="https://wordpress.org/plugins/json-api/">https://wordpress.org/plugins/json-api/</a></li>
 					<li>Install JWT support <a href="https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/">https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/</a></li>
 				</ul>
+				<p>After installatiion activate user controller from JSON-API settings. Under settings &gt; JSON-API &gt; User &gt; activate.</p>
 				<h2 id="frontend-setup-instruction">Frontend Setup instruction</h2>
 				<ul>
 					<li><code>yarn add ngx-wooapi@5.x.x</code> or <code>npm install --save ngx-wooapi@5.x.x</code> for angular 5 support</li>
@@ -120,7 +121,7 @@
   HttpHandler,
   HttpEvent,
   HttpInterceptor,
-  HttpErrorResponse
+  HttpErrorResponse,
 } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/common/http'</span>;
 <span class="hljs-comment">// import { Router } from '@angular/router';</span>
 <span class="hljs-keyword">import</span> { catchError } <span class="hljs-keyword">from</span> <span class="hljs-string">'rxjs/operators'</span>;
@@ -150,12 +151,16 @@
   }
 
   intercept(request: HttpRequest&lt;<span class="hljs-built_in">any</span>&gt;, next: HttpHandler): Observable&lt;HttpEvent&lt;<span class="hljs-built_in">any</span>&gt;&gt; {
+    <span class="hljs-keyword">let</span> authRequest;
     <span class="hljs-comment">// const auth = this.injector.get(AuthService);</span>
-    <span class="hljs-keyword">const</span> authRequest = request.clone({
-      setHeaders: {
-        <span class="hljs-comment">// Authorization: `Bearer ${auth.getToken()}`</span>
-      },
-      url: <span class="hljs-string">`<span class="hljs-subst">${environment.origin}</span>/<span class="hljs-subst">${request.url}</span><span class="hljs-subst">${this.includeWooAuth(request.url)}</span>`</span>
+    <span class="hljs-keyword">let</span> requestUrl = <span class="hljs-string">''</span>;
+    <span class="hljs-keyword">if</span> (request.url.includes(<span class="hljs-string">'api'</span>) || request.url.includes(<span class="hljs-string">'jwt'</span>)) {
+      requestUrl = <span class="hljs-string">`<span class="hljs-subst">${environment.origin}</span>/<span class="hljs-subst">${request.url}</span>`</span>;
+    } <span class="hljs-keyword">else</span> {
+      requestUrl = <span class="hljs-string">`<span class="hljs-subst">${environment.origin}</span><span class="hljs-subst">${environment.wcEndpoint}</span>/<span class="hljs-subst">${request.url}</span><span class="hljs-subst">${this.includeWooAuth(request.url)}</span>`</span>;
+    }
+    authRequest = request.clone({
+      url: requestUrl
     });
 
     <span class="hljs-keyword">return</span> next.handle(authRequest)

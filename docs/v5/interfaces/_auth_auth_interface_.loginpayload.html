@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>CreateNonceRes | ngx-wooapi</title>
+	<title>LoginPayload | ngx-wooapi</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -59,10 +59,10 @@
 					<a href="../modules/_auth_auth_interface_.html">&quot;auth/auth.interface&quot;</a>
 				</li>
 				<li>
-					<a href="_auth_auth_interface_.createnonceres.html">CreateNonceRes</a>
+					<a href="_auth_auth_interface_.loginpayload.html">LoginPayload</a>
 				</li>
 			</ul>
-			<h1>Interface CreateNonceRes</h1>
+			<h1>Interface LoginPayload</h1>
 		</div>
 	</div>
 </header>
@@ -73,7 +73,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">CreateNonceRes</span>
+						<span class="target">LoginPayload</span>
 					</li>
 				</ul>
 			</section>
@@ -84,10 +84,8 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_auth_auth_interface_.createnonceres.html#controller" class="tsd-kind-icon">controller</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_auth_auth_interface_.createnonceres.html#method" class="tsd-kind-icon">method</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_auth_auth_interface_.createnonceres.html#nonce" class="tsd-kind-icon">nonce</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_auth_auth_interface_.createnonceres.html#status" class="tsd-kind-icon">status</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_auth_auth_interface_.loginpayload.html#password" class="tsd-kind-icon">password</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_auth_auth_interface_.loginpayload.html#username" class="tsd-kind-icon">username</a></li>
 							</ul>
 						</section>
 					</div>
@@ -96,42 +94,22 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="controller" class="tsd-anchor"></a>
-					<h3>controller</h3>
-					<div class="tsd-signature tsd-kind-icon">controller<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="password" class="tsd-anchor"></a>
+					<h3>password</h3>
+					<div class="tsd-signature tsd-kind-icon">password<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/angular-studio/wooApi/blob/a6a4b92/src/app/services/auth/auth.interface.ts#L24">auth/auth.interface.ts:24</a></li>
+							<li>Defined in <a href="https://github.com/angular-studio/wooApi/blob/a6a4b92/src/app/services/auth/auth.interface.ts#L46">auth/auth.interface.ts:46</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="method" class="tsd-anchor"></a>
-					<h3>method</h3>
-					<div class="tsd-signature tsd-kind-icon">method<span class="tsd-signature-symbol">:</span> <a href="../enums/_auth_auth_interface_.noncemethod.html" class="tsd-signature-type">NonceMethod</a></div>
+					<a name="username" class="tsd-anchor"></a>
+					<h3>username</h3>
+					<div class="tsd-signature tsd-kind-icon">username<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/angular-studio/wooApi/blob/a6a4b92/src/app/services/auth/auth.interface.ts#L25">auth/auth.interface.ts:25</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="nonce" class="tsd-anchor"></a>
-					<h3>nonce</h3>
-					<div class="tsd-signature tsd-kind-icon">nonce<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/angular-studio/wooApi/blob/a6a4b92/src/app/services/auth/auth.interface.ts#L26">auth/auth.interface.ts:26</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="status" class="tsd-anchor"></a>
-					<h3>status</h3>
-					<div class="tsd-signature tsd-kind-icon">status<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/angular-studio/wooApi/blob/a6a4b92/src/app/services/auth/auth.interface.ts#L23">auth/auth.interface.ts:23</a></li>
+							<li>Defined in <a href="https://github.com/angular-studio/wooApi/blob/a6a4b92/src/app/services/auth/auth.interface.ts#L45">auth/auth.interface.ts:45</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -189,30 +167,24 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
 						<a href="_auth_auth_interface_.createnonce.html" class="tsd-kind-icon">Create<wbr>Nonce</a>
 					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_auth_auth_interface_.createnonceres.html" class="tsd-kind-icon">Create<wbr>Nonce<wbr>Res</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_auth_auth_interface_.createnonceres.html" class="tsd-kind-icon">Create<wbr>Nonce<wbr>Res</a>
+						<a href="_auth_auth_interface_.loginpayload.html" class="tsd-kind-icon">Login<wbr>Payload</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_auth_auth_interface_.createnonceres.html#controller" class="tsd-kind-icon">controller</a>
+								<a href="_auth_auth_interface_.loginpayload.html#password" class="tsd-kind-icon">password</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_auth_auth_interface_.createnonceres.html#method" class="tsd-kind-icon">method</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_auth_auth_interface_.createnonceres.html#nonce" class="tsd-kind-icon">nonce</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_auth_auth_interface_.createnonceres.html#status" class="tsd-kind-icon">status</a>
+								<a href="_auth_auth_interface_.loginpayload.html#username" class="tsd-kind-icon">username</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_auth_auth_interface_.loginpayload.html" class="tsd-kind-icon">Login<wbr>Payload</a>
-					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
 						<a href="_auth_auth_interface_.registerpayload.html" class="tsd-kind-icon">Register<wbr>Payload</a>
 					</li>

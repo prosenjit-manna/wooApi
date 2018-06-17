@@ -63,7 +63,7 @@ import {
   HttpHandler,
   HttpEvent,
   HttpInterceptor,
-  HttpErrorResponse
+  HttpErrorResponse,
 } from '@angular/common/http';
 // import { Router } from '@angular/router';
 import { catchError } from 'rxjs/operators';
@@ -93,12 +93,16 @@ export class AppInterceptor implements HttpInterceptor {
   }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    let authRequest;
     // const auth = this.injector.get(AuthService);
-    const authRequest = request.clone({
-      setHeaders: {
-        // Authorization: `Bearer ${auth.getToken()}`
-      },
-      url: `${environment.origin}/${request.url}${this.includeWooAuth(request.url)}`
+    let requestUrl = '';
+    if (request.url.includes('api') || request.url.includes('jwt')) {
+      requestUrl = `${environment.origin}/${request.url}`;
+    } else {
+      requestUrl = `${environment.origin}${environment.wcEndpoint}/${request.url}${this.includeWooAuth(request.url)}`;
+    }
+    authRequest = request.clone({
+      url: requestUrl
     });
 
     return next.handle(authRequest)
