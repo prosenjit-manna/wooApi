@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>RetrieveProductsResponse | ngx-wooapi</title>
+	<title>RegisterPayload | ngx-wooapi</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,13 +56,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_products_product_interface_.html">&quot;products/product.interface&quot;</a>
+					<a href="../modules/_auth_auth_interface_.html">&quot;auth/auth.interface&quot;</a>
 				</li>
 				<li>
-					<a href="_products_product_interface_.retrieveproductsresponse.html">RetrieveProductsResponse</a>
+					<a href="_auth_auth_interface_.registerpayload.html">RegisterPayload</a>
 				</li>
 			</ul>
-			<h1>Interface RetrieveProductsResponse</h1>
+			<h1>Interface RegisterPayload</h1>
 		</div>
 	</div>
 </header>
@@ -73,7 +73,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">RetrieveProductsResponse</span>
+						<span class="target">RegisterPayload</span>
 					</li>
 				</ul>
 			</section>
@@ -84,8 +84,12 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_products_product_interface_.retrieveproductsresponse.html#headers" class="tsd-kind-icon">headers</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_products_product_interface_.retrieveproductsresponse.html#products" class="tsd-kind-icon">products</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_auth_auth_interface_.registerpayload.html#display_name" class="tsd-kind-icon">display_<wbr>name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_auth_auth_interface_.registerpayload.html#email" class="tsd-kind-icon">email</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_auth_auth_interface_.registerpayload.html#nonce" class="tsd-kind-icon">nonce</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_auth_auth_interface_.registerpayload.html#notify" class="tsd-kind-icon">notify</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_auth_auth_interface_.registerpayload.html#user_pass" class="tsd-kind-icon">user_<wbr>pass</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_auth_auth_interface_.registerpayload.html#username" class="tsd-kind-icon">username</a></li>
 							</ul>
 						</section>
 					</div>
@@ -94,22 +98,62 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="headers" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> headers</h3>
-					<div class="tsd-signature tsd-kind-icon">headers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<a name="display_name" class="tsd-anchor"></a>
+					<h3>display_<wbr>name</h3>
+					<div class="tsd-signature tsd-kind-icon">display_<wbr>name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/angular-studio/wooApi/blob/a6a4b92/src/app/services/products/product.interface.ts#L70">products/product.interface.ts:70</a></li>
+							<li>Defined in <a href="https://github.com/angular-studio/wooApi/blob/a6a4b92/src/app/services/auth/auth.interface.ts#L34">auth/auth.interface.ts:34</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="products" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> products</h3>
-					<div class="tsd-signature tsd-kind-icon">products<span class="tsd-signature-symbol">:</span> <a href="_products_product_interface_.product.html" class="tsd-signature-type">Product</a><span class="tsd-signature-symbol">[]</span></div>
+					<a name="email" class="tsd-anchor"></a>
+					<h3>email</h3>
+					<div class="tsd-signature tsd-kind-icon">email<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/angular-studio/wooApi/blob/a6a4b92/src/app/services/products/product.interface.ts#L69">products/product.interface.ts:69</a></li>
+							<li>Defined in <a href="https://github.com/angular-studio/wooApi/blob/a6a4b92/src/app/services/auth/auth.interface.ts#L31">auth/auth.interface.ts:31</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="nonce" class="tsd-anchor"></a>
+					<h3>nonce</h3>
+					<div class="tsd-signature tsd-kind-icon">nonce<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/angular-studio/wooApi/blob/a6a4b92/src/app/services/auth/auth.interface.ts#L33">auth/auth.interface.ts:33</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="notify" class="tsd-anchor"></a>
+					<h3>notify</h3>
+					<div class="tsd-signature tsd-kind-icon">notify<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/angular-studio/wooApi/blob/a6a4b92/src/app/services/auth/auth.interface.ts#L35">auth/auth.interface.ts:35</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="user_pass" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> user_<wbr>pass</h3>
+					<div class="tsd-signature tsd-kind-icon">user_<wbr>pass<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/angular-studio/wooApi/blob/a6a4b92/src/app/services/auth/auth.interface.ts#L32">auth/auth.interface.ts:32</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="username" class="tsd-anchor"></a>
+					<h3>username</h3>
+					<div class="tsd-signature tsd-kind-icon">username<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/angular-studio/wooApi/blob/a6a4b92/src/app/services/auth/auth.interface.ts#L30">auth/auth.interface.ts:30</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -121,7 +165,7 @@
 					<li class="globals  ">
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
-					<li class=" tsd-kind-external-module">
+					<li class="current tsd-kind-external-module">
 						<a href="../modules/_auth_auth_interface_.html">"auth/auth.interface"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -142,7 +186,7 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_helper_service_.html">"helper.service"</a>
 					</li>
-					<li class="current tsd-kind-external-module">
+					<li class=" tsd-kind-external-module">
 						<a href="../modules/_products_product_interface_.html">"products/product.interface"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -162,38 +206,47 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-enum tsd-parent-kind-external-module">
-						<a href="../enums/_products_product_interface_.productorder.html" class="tsd-kind-icon">Product<wbr>Order</a>
-					</li>
-					<li class=" tsd-kind-enum tsd-parent-kind-external-module">
-						<a href="../enums/_products_product_interface_.productorderby.html" class="tsd-kind-icon">Product<wbr>Order<wbr>By</a>
+						<a href="../enums/_auth_auth_interface_.noncemethod.html" class="tsd-kind-icon">Nonce<wbr>Method</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_products_product_interface_.product.html" class="tsd-kind-icon">Product</a>
+						<a href="_auth_auth_interface_.createnonce.html" class="tsd-kind-icon">Create<wbr>Nonce</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_products_product_interface_.productquery.html" class="tsd-kind-icon">Product<wbr>Query</a>
+						<a href="_auth_auth_interface_.createnonceres.html" class="tsd-kind-icon">Create<wbr>Nonce<wbr>Res</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_products_product_interface_.productreview.html" class="tsd-kind-icon">Product<wbr>Review</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_products_product_interface_.productreviewsresponse.html" class="tsd-kind-icon">Product<wbr>Reviews<wbr>Response</a>
+						<a href="_auth_auth_interface_.loginpayload.html" class="tsd-kind-icon">Login<wbr>Payload</a>
 					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_products_product_interface_.retrieveproductsresponse.html" class="tsd-kind-icon">Retrieve<wbr>Products<wbr>Response</a>
+						<a href="_auth_auth_interface_.registerpayload.html" class="tsd-kind-icon">Register<wbr>Payload</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_products_product_interface_.retrieveproductsresponse.html#headers" class="tsd-kind-icon">headers</a>
+								<a href="_auth_auth_interface_.registerpayload.html#display_name" class="tsd-kind-icon">display_<wbr>name</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_products_product_interface_.retrieveproductsresponse.html#products" class="tsd-kind-icon">products</a>
+								<a href="_auth_auth_interface_.registerpayload.html#email" class="tsd-kind-icon">email</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_auth_auth_interface_.registerpayload.html#nonce" class="tsd-kind-icon">nonce</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_auth_auth_interface_.registerpayload.html#notify" class="tsd-kind-icon">notify</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_auth_auth_interface_.registerpayload.html#user_pass" class="tsd-kind-icon">user_<wbr>pass</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_auth_auth_interface_.registerpayload.html#username" class="tsd-kind-icon">username</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_auth_auth_interface_.registerrsponse.html" class="tsd-kind-icon">Register<wbr>Rsponse</a>
+					</li>
 				</ul>
 			</nav>
 		</div>

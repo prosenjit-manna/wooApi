@@ -66,19 +66,25 @@
 			<div class="tsd-panel tsd-typography">
 				<h1 id="wooapi">WooApi</h1>
 				<p>Woocommerce API service with angular</p>
-				<p>##Supports angular version</p>
+				<h2 id="supports-angular-version">Supports angular version</h2>
 				<ul>
 					<li>master - Angular 6</li>
 					<li>v5 - Angular 5</li>
 				</ul>
-				<p>#Supports woocommerce API version</p>
+				<h2 id="supports-woocommerce-api-version">Supports woocommerce API version</h2>
 				<ul>
 					<li>Supports V3 version</li>
 				</ul>
 				<p>Tested with https protocol. Wordpress version 4.9.6 and WooCommerce version 3.4.1</p>
+				<h2 id="setup-instruction">Setup instruction</h2>
+				<ul>
+					<li><a href="#backend-setup-instruction">Backend setup</a></li>
+					<li><a href="#frontend-setup-instruction">Frontend setup</a></li>
+				</ul>
 				<h2 id="api-doc">Api Doc</h2>
-				<p><a href="https://angular-studio.github.io/wooApi/">https://angular-studio.github.io/wooApi/</a></p>
-				<h2 id="enable-cors">Enable CORS</h2>
+				<p><a href="https://angular-studio.github.io/wooApi/v5">https://angular-studio.github.io/wooApi/v5</a></p>
+				<h2 id="backend-setup-instruction">Backend Setup instruction</h2>
+				<h3 id="enable-cors">Enable CORS</h3>
 				<p>Add this code in function.php</p>
 				<pre><code>add_action( <span class="hljs-string">'init'</span>, <span class="hljs-string">'nt_cors_enable'</span> );
 
@@ -93,9 +99,17 @@
     <span class="hljs-keyword">exit</span>();
   }
 }
-</code></pre><h2 id="setup-instruction">Setup instruction</h2>
+</code></pre><h3 id="auth-service-dependency">Auth service dependency</h3>
 				<ul>
-					<li><code>yarn add ngx-wooapi@5.x.x</code> or <code>npm install --save ngx-wooapi@5.x.x</code></li>
+					<li>Install JSON API user <a href="https://wordpress.org/plugins/json-api-user/">https://wordpress.org/plugins/json-api-user/</a>, <a href="https://wordpress.org/plugins/json-api/">https://wordpress.org/plugins/json-api/</a></li>
+					<li>Install JWT support <a href="https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/">https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/</a></li>
+				</ul>
+				<p>After installatiion activate user controller from JSON-API settings. Under settings &gt; JSON-API &gt; User &gt; activate.</p>
+				<h2 id="frontend-setup-instruction">Frontend Setup instruction</h2>
+				<ul>
+					<li><code>yarn add ngx-wooapi@5.x.x</code> or <code>npm install --save ngx-wooapi@5.x.x</code> for angular 5 support</li>
+					<li><code>yarn add ngx-wooapi@6.x.x</code> or <code>npm install --save ngx-wooapi@6.x.x</code> for angular 6 support</li>
+					<li></li>
 					<li>Add interceptor </li>
 				</ul>
 				<pre><code><span class="hljs-keyword">import</span> {
@@ -107,7 +121,7 @@
   HttpHandler,
   HttpEvent,
   HttpInterceptor,
-  HttpErrorResponse
+  HttpErrorResponse,
 } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/common/http'</span>;
 <span class="hljs-comment">// import { Router } from '@angular/router';</span>
 <span class="hljs-keyword">import</span> { catchError } <span class="hljs-keyword">from</span> <span class="hljs-string">'rxjs/operators'</span>;
@@ -137,12 +151,16 @@
   }
 
   intercept(request: HttpRequest&lt;<span class="hljs-built_in">any</span>&gt;, next: HttpHandler): Observable&lt;HttpEvent&lt;<span class="hljs-built_in">any</span>&gt;&gt; {
+    <span class="hljs-keyword">let</span> authRequest;
     <span class="hljs-comment">// const auth = this.injector.get(AuthService);</span>
-    <span class="hljs-keyword">const</span> authRequest = request.clone({
-      setHeaders: {
-        <span class="hljs-comment">// Authorization: `Bearer ${auth.getToken()}`</span>
-      },
-      url: <span class="hljs-string">`<span class="hljs-subst">${environment.origin}</span>/<span class="hljs-subst">${request.url}</span><span class="hljs-subst">${this.includeWooAuth(request.url)}</span>`</span>
+    <span class="hljs-keyword">let</span> requestUrl = <span class="hljs-string">''</span>;
+    <span class="hljs-keyword">if</span> (request.url.includes(<span class="hljs-string">'api'</span>) || request.url.includes(<span class="hljs-string">'jwt'</span>)) {
+      requestUrl = <span class="hljs-string">`<span class="hljs-subst">${environment.origin}</span>/<span class="hljs-subst">${request.url}</span>`</span>;
+    } <span class="hljs-keyword">else</span> {
+      requestUrl = <span class="hljs-string">`<span class="hljs-subst">${environment.origin}</span><span class="hljs-subst">${environment.wcEndpoint}</span>/<span class="hljs-subst">${request.url}</span><span class="hljs-subst">${this.includeWooAuth(request.url)}</span>`</span>;
+    }
+    authRequest = request.clone({
+      url: requestUrl
     });
 
     <span class="hljs-keyword">return</span> next.handle(authRequest)
@@ -212,6 +230,12 @@
 						<a href="globals.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-external-module">
+						<a href="modules/_auth_auth_interface_.html">"auth/auth.interface"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_auth_auth_service_.html">"auth/auth.service"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
 						<a href="modules/_categories_product_categories_interface_.html">"categories/product-<wbr>categories.interface"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -251,63 +275,6 @@
 	</div>
 </div>
 <footer class="with-border-bottom">
-	<div class="container">
-		<h2>Legend</h2>
-		<div class="tsd-legend-group">
-			<ul class="tsd-legend">
-				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
-				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
-				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
-				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
-				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
-				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
-				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
-				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
-				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
-				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
-				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
-				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
-				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
-				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
-				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
-			</ul>
-		</div>
-	</div>
 </footer>
 <div class="container tsd-generator">
 	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>

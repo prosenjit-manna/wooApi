@@ -189,7 +189,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
 @media (max-width: 640px) { .container { padding: 0 20px; } }
 
-.container-main { padding-bottom: 200px; }
+.container-main { padding-bottom: 50px; }
 
 .row { position: relative; margin: 0 -10px; }
 .row:after { visibility: hidden; display: block; content: ""; clear: both; height: 0; }
