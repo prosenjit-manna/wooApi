@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.queryParams
       .pipe(
-        switchMap(params => this.wooProducs.retrieveProductCount(params))
+        switchMap(params => this.wooProducs.retrieveProducts(params))
       ).subscribe(response => {
         console.log(response);
       }, err => {
