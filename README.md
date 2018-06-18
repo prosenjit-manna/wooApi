@@ -1,19 +1,26 @@
 # WooApi
 Woocommerce API service with angular
 
-##Supports angular version
+## Supports angular version
 - master - Angular 6
-- v5 - Angular 5 (Not released)
+- v5 - Angular 5
 
-#Supports woocommerce API version
+## Supports woocommerce API version
 - Supports V3 version
 
 Tested with https protocol. Wordpress version 4.9.6 and WooCommerce version 3.4.1
 
-## Api Doc
-https://angular-studio.github.io/wooApi/
+## Setup instruction
+- [Backend setup](#backend-setup-instruction)
+- [Frontend setup](#frontend-setup-instruction)
 
-## Enable CORS
+## Api Doc
+https://angular-studio.github.io/wooApi
+https://angular-studio.github.io/wooApi/v5
+
+## Backend Setup instruction
+
+### Enable CORS
 Add this code in function.php
 
 ```
@@ -32,10 +39,90 @@ function nt_cors_enable() {
 }
 ```
 
-## Setup instruction
+### Auth service dependency
+- Install JSON API user https://wordpress.org/plugins/json-api-user/, https://wordpress.org/plugins/json-api/
+- Install JWT support https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/
 
-- `yarn add ngx-wooapi` or `npm install --save ngx-wooapi`
-- Add interceptor https://gist.github.com/5ce00228883ce6166e65b9eb1862c7c7
+After installatiion activate user controller from JSON-API settings. Under settings > JSON-API > User > activate.
+
+
+
+## Frontend Setup instruction
+
+- `yarn add ngx-wooapi@5.x.x` or `npm install --save ngx-wooapi@5.x.x` for angular 5 support
+- `yarn add ngx-wooapi@6.x.x` or `npm install --save ngx-wooapi@6.x.x` for angular 6 support
+- 
+- Add interceptor 
+
+```
+import {
+  Injectable,
+  // Injector
+ } from '@angular/core';
+import {
+  HttpRequest,
+  HttpHandler,
+  HttpEvent,
+  HttpInterceptor,
+  HttpErrorResponse,
+} from '@angular/common/http';
+// import { Router } from '@angular/router';
+import { catchError } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+
+// import { AuthService } from './auth.service';
+import { environment } from '../environments/environment';
+
+@Injectable()
+export class AppInterceptor implements HttpInterceptor {
+
+  constructor(
+    // private injector: Injector,
+    // private router: Router
+  ) { }
+
+  private includeWooAuth(url) {
+    const wooAuth = `consumer_key=${environment.woocommerce.consumer_key}&consumer_secret=${environment.woocommerce.consumer_secret}`;
+    const hasQuery = url.includes('?');
+    let return_url = '';
+    if (hasQuery) {
+      return_url =  wooAuth;
+    } else {
+      return_url = '?' + wooAuth;
+    }
+    return return_url;
+  }
+
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    let authRequest;
+    // const auth = this.injector.get(AuthService);
+    let requestUrl = '';
+    if (request.url.includes('api') || request.url.includes('jwt')) {
+      requestUrl = `${environment.origin}/${request.url}`;
+    } else {
+      requestUrl = `${environment.origin}${environment.wcEndpoint}/${request.url}${this.includeWooAuth(request.url)}`;
+    }
+    authRequest = request.clone({
+      url: requestUrl
+    });
+
+    return next.handle(authRequest)
+      .pipe(
+        catchError(err => {
+          if (err instanceof HttpErrorResponse && err.status === 0) {
+            console.log('Check Your Internet Connection And Try again Later');
+          } else if (err instanceof HttpErrorResponse && err.status === 401) {
+            // auth.setToken(null);
+            // this.router.navigate(['/', 'login']);
+          }
+          return throwError(err);
+        })
+      );
+  }
+}
+
+
+```
 
 Add this code in your app.module.ts
 
@@ -87,7 +174,7 @@ constructor(
   ) { }
 
   ngOnInit() {
-    this.wooProducs.retriveProducts().subscribe(response => {
+    this.wooProducs.retrieveProducts().subscribe(response => {
       console.log(response);
     }, err => {
       console.log(err);

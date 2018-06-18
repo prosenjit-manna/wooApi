@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
-import { throwError, Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 
 @Injectable()
 export class  WoocommerceHelperService {
@@ -27,6 +27,15 @@ export class  WoocommerceHelperService {
       queryPatch[key] = query[key].toString();
     });
     return queryPatch;
+  }
+
+  includeEncoded(query = {}) {
+    const params = new FormData();
+    Object.keys(query).forEach((key) => {
+      params.append(key, query[key]);
+    });
+    console.log(params);
+    return params;
   }
 
   includeResponseHeader(response, responseBodyKey?: string) {

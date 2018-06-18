@@ -1,13 +1,9 @@
-// The file contents for the current environment will overwrite these during build.
-// The build system defaults to the dev environment which uses `environment.ts`, but if you do
-// `ng build --env=prod` then `environment.prod.ts` will be used instead.
-// The list of which env maps to which file can be found in `.angular-cli.json`.
-
 export const environment = {
-  production: false,
-  origin: 'https://laravel-studio.com/appwoo/wc-api/v3',
+  production: true,
+  origin: 'https://laravel-studio.com/appwoo',
+  wcEndpoint: '/wp-json/wc/v2',
   woocommerce: {
-    consumer_key:  'ck_3d9e10ae2c3f28e4581dc7af181c825923caa8a5',
-    consumer_secret: 'cs_2cdf0e3c6566d521f4bcd3d5f9ef7c7f1eec3213'
+    consumer_key:  'ck_0aac6794e07b054a9fb4dd57faa8c8b3a375d35b',
+    consumer_secret: 'cs_9672e5c6fdb7ecc9a07909c84dca441a29c8ab7d'
   }
 };

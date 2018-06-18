@@ -10,7 +10,7 @@ import {
 import { WoocommerceHelperService } from '../helper.service';
 
 @Injectable()
-export class WoocommerceProductsService {
+export class WoocommerceCategoriesService {
 
   constructor(
     private httpClient: HttpClient,
