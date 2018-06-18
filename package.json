@@ -18,7 +18,8 @@
     "start": "ng serve",
     "build": "ng-packagr -p ng-package.json",
     "lint": "ng lint",
-    "doc": "typedoc --out ./docs/ ./src/app/services/ --module system && cp .nojekyll ./docs/"
+    "doc": "typedoc --theme ./default --out ./docs/ ./src/app/services/ --module system && cp .nojekyll ./docs/",
+    "docs": "rm -rf temp && mkdir temp && cp -r docs/* ./temp &&  git checkout gh-pages && cp -r ./temp/* ./"
   },
   "private": false,
   "dependencies": {
