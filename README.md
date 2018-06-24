@@ -17,8 +17,8 @@ Tested with https protocol. Wordpress version 4.9.6 and WooCommerce version 3.4.
 - [Frontend setup](#frontend-setup-instruction)
 
 ## Api Doc
-https://angular-studio.github.io/wooApi
-https://angular-studio.github.io/wooApi/v5
+- https://angular-studio.github.io/wooApi
+- https://angular-studio.github.io/wooApi/v5
 
 ## Backend Setup instruction
 
