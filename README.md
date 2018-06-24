@@ -6,7 +6,8 @@ Woocommerce API service with angular
 - v5 - Angular 5
 
 ## Supports woocommerce API version
-- Supports V3 version
+- Supports V2 version: base url https://example.com/wp-json/wc/v2
+- Please see `environment` constact and interceptor for frontend setup
 
 Tested with https protocol. Wordpress version 4.9.6 and WooCommerce version 3.4.1
 
@@ -137,11 +138,15 @@ Add this code in your app.module.ts
 Add new property in environment.ts for angular webapp 
 
 ```
-origin: 'https://domain/appwoo/wc-api/v3',
+export const environment = {
+  origin: 'https://example.com/appwoo',
+  wcEndpoint: '/wp-json/wc/v2',
   woocommerce: {
-    consumer_key:  'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-    consumer_secret: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+    consumer_key:  'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+    consumer_secret: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
   }
+};
+
 ```
 
 Add new providers in app.module 
