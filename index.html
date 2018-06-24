@@ -73,7 +73,8 @@
 				</ul>
 				<h2 id="supports-woocommerce-api-version">Supports woocommerce API version</h2>
 				<ul>
-					<li>Supports V3 version</li>
+					<li>Supports V2 version: base url <a href="https://example.com/wp-json/wc/v2">https://example.com/wp-json/wc/v2</a></li>
+					<li>Please see <code>environment</code> constact and interceptor for frontend setup</li>
 				</ul>
 				<p>Tested with https protocol. Wordpress version 4.9.6 and WooCommerce version 3.4.1</p>
 				<h2 id="setup-instruction">Setup instruction</h2>
@@ -82,8 +83,10 @@
 					<li><a href="#frontend-setup-instruction">Frontend setup</a></li>
 				</ul>
 				<h2 id="api-doc">Api Doc</h2>
-				<p><a href="https://angular-studio.github.io/wooApi">https://angular-studio.github.io/wooApi</a>
-				<a href="https://angular-studio.github.io/wooApi/v5">https://angular-studio.github.io/wooApi/v5</a></p>
+				<ul>
+					<li><a href="https://angular-studio.github.io/wooApi">https://angular-studio.github.io/wooApi</a></li>
+					<li><a href="https://angular-studio.github.io/wooApi/v5">https://angular-studio.github.io/wooApi/v5</a></li>
+				</ul>
 				<h2 id="backend-setup-instruction">Backend Setup instruction</h2>
 				<h3 id="enable-cors">Enable CORS</h3>
 				<p>Add this code in function.php</p>
@@ -190,11 +193,14 @@
  <span class="hljs-string">]</span>
 
 </code></pre><p>Add new property in environment.ts for angular webapp </p>
-				<pre><code><span class="hljs-attribute">origin</span>: <span class="hljs-string">'https://domain/appwoo/wc-api/v3'</span>,
-  <span class="hljs-attribute">woocommerce</span>: {
-    <span class="hljs-attribute">consumer_key</span>:  <span class="hljs-string">'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'</span>,
-    <span class="hljs-attribute">consumer_secret</span>: <span class="hljs-string">'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'</span>
+				<pre><code><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> environment = {
+  origin: <span class="hljs-string">'https://example.com/appwoo'</span>,
+  wcEndpoint: <span class="hljs-string">'/wp-json/wc/v2'</span>,
+  woocommerce: {
+    consumer_key:  <span class="hljs-string">'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'</span>,
+    consumer_secret: <span class="hljs-string">'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'</span>
   }
+};
 </code></pre><p>Add new providers in app.module </p>
 				<pre><code><span class="hljs-keyword">import</span> {
   WoocommerceProductsService,
