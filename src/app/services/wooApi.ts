@@ -7,3 +7,5 @@ export * from './categories/product-categories.interface';
 export * from './categories/woocommerce-categories.service';
 export * from './auth/auth.interface';
 export * from './auth/auth.service';
+export * from './orders/order.service';
+export * from './orders/orders.interface';
