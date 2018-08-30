@@ -23,4 +23,14 @@ export class WoocommerceOrderService {
     return this.httpClient.get<Order>(`orders/${id}`)
       .pipe(catchError(err => this.wooHelper.handleError(err)));
   }
+
+  listAllOrder(): Observable<Order[]>  {
+    return this.httpClient.get<Order[]>(`orders`)
+      .pipe(catchError(err => this.wooHelper.handleError(err)));
+  }
+
+  updateOrder(order: Order): Observable<Order>  {
+    return this.httpClient.put<Order>(`orders/${order.id}`, order)
+      .pipe(catchError(err => this.wooHelper.handleError(err)));
+  }
 }

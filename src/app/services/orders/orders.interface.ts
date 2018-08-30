@@ -1,4 +1,5 @@
 export interface Order {
+    id?: string;
     parent_id?: number;
     number?: string;
     order_key?: string;
