@@ -123,7 +123,6 @@ export class AppInterceptor implements HttpInterceptor {
   }
 }
 
-
 ```
 
 Add this code in your app.module.ts

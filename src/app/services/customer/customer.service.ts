@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { WoocommerceHelperService } from '../helper.service';
-import { Customer } from '@services/customer/customer.interface';
+import { Customer } from './customer.interface';
 
 @Injectable()
 export class WoocommerceCustomerService {
