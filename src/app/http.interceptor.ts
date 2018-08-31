@@ -11,7 +11,7 @@ import {
 } from '@angular/common/http';
 // import { Router } from '@angular/router';
 import { catchError } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 
 // import { AuthService } from './auth.service';
 import { environment } from '../environments/environment';
@@ -58,7 +58,7 @@ export class AppInterceptor implements HttpInterceptor {
             // auth.setToken(null);
             // this.router.navigate(['/', 'login']);
           }
-          return Observable.throw(err);
+          return throwError(err);
         })
       );
   }
