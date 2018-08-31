@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 
 import { AppInterceptor } from './http.interceptor';
 import { WoocommerceProductsService } from '@services/products/woocommerce-products.service';
+import { WoocommerceOrderService } from '@services/orders/order.service';
 import { WoocommerceHelperService } from '@services/helper.service';
 import { AuthService } from '@services/auth/auth.service';
 
@@ -27,6 +28,7 @@ import { AuthService } from '@services/auth/auth.service';
     },
     WoocommerceProductsService,
     WoocommerceHelperService,
+    WoocommerceOrderService,
     AuthService
   ],
   bootstrap: [AppComponent]

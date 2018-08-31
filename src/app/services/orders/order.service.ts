@@ -33,4 +33,9 @@ export class WoocommerceOrderService {
     return this.httpClient.put<Order>(`orders/${order.id}`, order)
       .pipe(catchError(err => this.wooHelper.handleError(err)));
   }
+
+  deleteOrder(id: string): Observable<Order>  {
+    return this.httpClient.delete<Order>(`orders/${id}`)
+      .pipe(catchError(err => this.wooHelper.handleError(err)));
+  }
 }
