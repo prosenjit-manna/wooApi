@@ -9,6 +9,7 @@ Woocommerce API service with angular
 - Supports V2 version: base url https://example.com/wp-json/wc/v2
 - Please see `environment` constact and interceptor for frontend setup
 
+
 Tested with https protocol. Wordpress version 4.9.6 and WooCommerce version 3.4.1
 
 ## Setup instruction
@@ -16,7 +17,8 @@ Tested with https protocol. Wordpress version 4.9.6 and WooCommerce version 3.4.
 - [Frontend setup](#frontend-setup-instruction)
 
 ## Api Doc
-https://angular-studio.github.io/wooApi/v5
+- https://angular-studio.github.io/wooApi
+- https://angular-studio.github.io/wooApi/v5
 
 ## Backend Setup instruction
 
@@ -84,9 +86,10 @@ export class AppInterceptor implements HttpInterceptor {
   private includeWooAuth(url) {
     const wooAuth = `consumer_key=${environment.woocommerce.consumer_key}&consumer_secret=${environment.woocommerce.consumer_secret}`;
     const hasQuery = url.includes('?');
+
     let return_url = '';
     if (hasQuery) {
-      return_url =  wooAuth;
+      return_url =  '&' +  wooAuth;
     } else {
       return_url = '?' + wooAuth;
     }
@@ -121,6 +124,7 @@ export class AppInterceptor implements HttpInterceptor {
   }
 }
 
+
 ```
 
 Add this code in your app.module.ts
@@ -146,7 +150,6 @@ export const environment = {
     consumer_secret: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
   }
 };
-
 ```
 
 Add new providers in app.module 

@@ -27,9 +27,10 @@ export class AppInterceptor implements HttpInterceptor {
   private includeWooAuth(url) {
     const wooAuth = `consumer_key=${environment.woocommerce.consumer_key}&consumer_secret=${environment.woocommerce.consumer_secret}`;
     const hasQuery = url.includes('?');
+
     let return_url = '';
     if (hasQuery) {
-      return_url =  wooAuth;
+      return_url =  '&' +  wooAuth;
     } else {
       return_url = '?' + wooAuth;
     }
