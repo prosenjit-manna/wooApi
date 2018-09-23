@@ -36,7 +36,7 @@ export class WoocommerceCouponService {
   }
 
   deleteCoupon(id: number): Observable<Coupon> {
-    return this.httpClient.delete<Coupon>(`coupons/${id}`)
+    return this.httpClient.delete<Coupon>(`coupons/${id}?force=true`)
       .pipe(catchError(err => this.wooHelper.handleError(err)));
   }
 
