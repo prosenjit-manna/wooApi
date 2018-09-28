@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
     //   console.log(err);
     // });
 
-    this.authService.generateAuthCokkie({
+    this.authService.generateAuthCookie({
       username: 'prosenjit3',
       password: 'pass123'
     }).subscribe(res => {
