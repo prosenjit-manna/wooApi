@@ -37,4 +37,9 @@ export class AuthService {
     return this.httpClient.post(`wp-json/jwt-auth/v1/token`, payload)
     .pipe(catchError(err => this.wooHelper.handleError(err)));
   }
+
+  generateAuthCookie(data: LoginPayload) {
+    return this.httpClient.post(`api/user/generate_auth_cookie/`, this.wooHelper.includeEncoded(data))
+      .pipe(catchError(err => this.wooHelper.handleError(err)));
+  }
 }

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { WoocommerceProductsService } from '@services/products/woocommerce-products.service';
 import { switchMap } from 'rxjs/operators';
+import { AuthService } from '@services/auth/auth.service';
+
 
 
 @Component({
@@ -13,7 +15,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private wooProducs: WoocommerceProductsService
+    private wooProducs: WoocommerceProductsService,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
@@ -30,6 +33,13 @@ export class HomeComponent implements OnInit {
     // }, err => {
     //   console.log(err);
     // });
+
+    this.authService.generateAuthCokkie({
+      username: 'prosenjit3',
+      password: 'pass123'
+    }).subscribe(res => {
+      console.log(res);
+    })
   }
 
 }
