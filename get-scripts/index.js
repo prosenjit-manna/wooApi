@@ -1,6 +1,7 @@
 const puppeteer = require('puppeteer');
-const url = 'https://woocommerce.github.io/woocommerce-rest-api-docs/#coupons';
-const tablerow = '#coupon-meta-data-properties + table tbody tr';
+const url = 'https://woocommerce.github.io/woocommerce-rest-api-docs/#order-notes';
+const id = '#order-note-properties';
+const tablerow = id + ' + table tbody tr';
 
 
 
@@ -18,18 +19,18 @@ const tablerow = '#coupon-meta-data-properties + table tbody tr';
   await page.goto(url, { waitUntil: 'domcontentloaded' });
 
   await page.waitFor(3000);
-  const tabledata =  await page.evaluate(() => {
+  const tabledata =  await page.evaluate((id) => {
     const obj = {};
-    var rows = document.querySelectorAll('#coupon-meta-data-properties + table tbody tr');
+    var rows = document.querySelectorAll(id + ' + table tbody tr');
     rows.forEach((item, index) => {
-      var row = `#coupon-meta-data-properties + table tbody tr:nth-child(${index + 1})`
+      var row = `${id} + table tbody tr:nth-child(${index + 1})`
       var attr =  document.querySelector(`${row} td:nth-child(1)`);
       var type =  document.querySelector(`${row} td:nth-child(2)`);
       obj[attr.innerText] = type.innerText;
     })
 
     return obj;
-  })
+  }, id)
 
   
   Object.keys(tabledata).forEach(key => {
@@ -44,27 +45,34 @@ const tablerow = '#coupon-meta-data-properties + table tbody tr';
     }
   });
 
-  console.log(tabledata);
+  
   var string = '';
   Object.keys(tabledata).forEach((key, index) => {
-    console.log(key, index);
     if (index === 0) {
       string = '{';
     }
 
     if (tabledata[key] === 'number') {
-      string +=  key + ':number,'
+      string +=  key + ':number;'
     }
 
     if (tabledata[key] === 'string') {
-      string +=  key + ':string,'
+      string +=  key + ':string;'
+    }
+
+    if (tabledata[key] === 'Date') {
+      string +=  key + ':Date;'
+    }
+
+    if (tabledata[key] === 'boolean') {
+      string +=  key + ':boolean;'
     }
 
     if (index === (Object.keys(tabledata).length - 1)) {
       string += '}'
     }
   })
-
+  // console.log(tabledata);
   console.log(string);
   await browser.close();
 
