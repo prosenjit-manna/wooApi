@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { WoocommerceProductsService } from '@services/products/woocommerce-products.service';
 import { switchMap } from 'rxjs/operators';
 import { AuthService } from '@services/auth/auth.service';
+import { WoocommerceCategoriesService } from '@services/wooApi';
 
 
 
@@ -16,7 +17,8 @@ export class HomeComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private wooProducs: WoocommerceProductsService,
-    private authService: AuthService
+    private authService: AuthService,
+    private woocategories: WoocommerceCategoriesService
   ) { }
 
   ngOnInit() {
@@ -39,6 +41,10 @@ export class HomeComponent implements OnInit {
       password: 'pass123'
     }).subscribe(res => {
       console.log(res);
+    })
+    
+    this.woocategories.retrieveCategories().subscribe(res => {
+      console.log(res)
     })
   }
 

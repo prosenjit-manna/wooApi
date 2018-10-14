@@ -22,7 +22,7 @@ export class WoocommerceCategoriesService {
    * @param payload: Product
    */
   createCategory(category: ProductCategory): Observable<ProductCategory> {
-    return this.httpClient.post<ProductCategory>(`categories`, category)
+    return this.httpClient.post<ProductCategory>(`products/categories`, category)
       .pipe(catchError(err => this.wooHelper.handleError(err)));
   }
 
@@ -30,7 +30,7 @@ export class WoocommerceCategoriesService {
    * Retrieve a Category
    */
   retrieveCategory(id: number): Observable<ProductCategory> {
-    return this.httpClient.get<ProductCategory>(`categories/${id}`)
+    return this.httpClient.get<ProductCategory>(`products/categories/${id}`)
       .pipe(catchError(err => this.wooHelper.handleError(err)));
   }
 
@@ -38,7 +38,7 @@ export class WoocommerceCategoriesService {
    * Retrieve list of Category
    */
   retrieveCategories(query?: CategoryQuery): Observable<CategoryQuery[]> {
-    return this.httpClient.get(`categories`,
+    return this.httpClient.get(`products/categories`,
       {
         params: this.wooHelper.includeQuery(query)
       })
@@ -50,7 +50,7 @@ export class WoocommerceCategoriesService {
    * Update Category
    */
   updateCategory(id: number, payload: ProductCategory): Observable<ProductCategory> {
-    return this.httpClient.put<ProductCategory>(`categories/${id}`, payload)
+    return this.httpClient.put<ProductCategory>(`products/categories/${id}`, payload)
     .pipe(catchError(err => this.wooHelper.handleError(err)));
   }
 
@@ -58,7 +58,7 @@ export class WoocommerceCategoriesService {
    * Delete Category
    */
   deleteCategory(id: number): Observable<ProductCategory> {
-    return this.httpClient.delete<ProductCategory>(`categories/${id}`)
+    return this.httpClient.delete<ProductCategory>(`products/categories/${id}`)
     .pipe(catchError(err => this.wooHelper.handleError(err)));
   }
 }
