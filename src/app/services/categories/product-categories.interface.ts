@@ -44,8 +44,8 @@ export interface CategoryQuery {
   include?: Array<any>;
   order?: CategoryOrder;
   orderby?: CategoryOrderBy;
-  hide_empty: boolean;
-  parent: number;
-  product: number;
-  slug: string;
+  hide_empty?: boolean;
+  parent?: number;
+  product?: number;
+  slug?: string;
 }
