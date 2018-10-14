@@ -11,3 +11,7 @@ export * from './orders/order.service';
 export * from './orders/orders.interface';
 export * from './coupon/coupon.service';
 export * from './coupon/coupon.interface';
+export * from './customer/customer.interface';
+export * from './customer/customer.service';
+export * from './order-notes/order-notes.interface';
+export * from './order-notes/order-notes.service';

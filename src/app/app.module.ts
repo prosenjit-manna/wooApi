@@ -10,6 +10,7 @@ import { WoocommerceProductsService } from '@services/products/woocommerce-produ
 import { WoocommerceOrderService } from '@services/orders/order.service';
 import { WoocommerceHelperService } from '@services/helper.service';
 import { AuthService } from '@services/auth/auth.service';
+import { WoocommerceCategoriesService } from '@services/categories/woocommerce-categories.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AuthService } from '@services/auth/auth.service';
     WoocommerceProductsService,
     WoocommerceHelperService,
     WoocommerceOrderService,
-    AuthService
+    AuthService,
+    WoocommerceCategoriesService
   ],
   bootstrap: [AppComponent]
 })
