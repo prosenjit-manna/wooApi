@@ -15,3 +15,5 @@ export * from './customer/customer.interface';
 export * from './customer/customer.service';
 export * from './order-notes/order-notes.interface';
 export * from './order-notes/order-notes.service';
+export * from './refunds/refunds.interface';
+export * from './refunds/refunds.service';
