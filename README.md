@@ -189,7 +189,7 @@ constructor(
 
 All done have fun :)
 
-### Collection 
+### Progress 
 - coupons [x]
 - customers [x]
 - orders [x]

@@ -1,13 +1,13 @@
 const puppeteer = require('puppeteer');
-const url = 'https://woocommerce.github.io/woocommerce-rest-api-docs/#order-notes';
-const id = '#order-note-properties';
+const url = 'https://woocommerce.github.io/woocommerce-rest-api-docs/#order-refund-line-items-properties';
+const id = '#order-refund-line-items-properties';
 const tablerow = id + ' + table tbody tr';
 
 
 
 (async () => {
   const browser = await puppeteer.launch({
-    executablePath: '/usr/bin/google-chrome',
+    // executablePath: '/Applications/google-chrome.app/Contents/MacOS',
     headless: false,
 
   });
@@ -26,11 +26,12 @@ const tablerow = id + ' + table tbody tr';
       var row = `${id} + table tbody tr:nth-child(${index + 1})`
       var attr =  document.querySelector(`${row} td:nth-child(1)`);
       var type =  document.querySelector(`${row} td:nth-child(2)`);
-      obj[attr.innerText] = type.innerText;
+      obj[attr.innerText.trim()] = type.innerText.trim();
     })
-
+  
     return obj;
   }, id)
+  console.log('properties length', Object.keys(tabledata).length)
 
   
   Object.keys(tabledata).forEach(key => {
@@ -41,9 +42,10 @@ const tablerow = id + ' + table tbody tr';
       tabledata[key] = 'number';
     }
     if (tabledata[key] === 'array') {
-      tabledata[key] = 'Array<any>';
+      tabledata[key] = 'array';
     }
   });
+  // console.log(JSON.stringify(tabledata))
 
   
   var string = '';
@@ -53,19 +55,23 @@ const tablerow = id + ' + table tbody tr';
     }
 
     if (tabledata[key] === 'number') {
-      string +=  key + ':number;'
+      string +=  key + '?:number; \n'
     }
 
     if (tabledata[key] === 'string') {
-      string +=  key + ':string;'
+      string +=  key + '?:string; \n'
     }
 
     if (tabledata[key] === 'Date') {
-      string +=  key + ':Date;'
+      string +=  key + '?:Date; \n'
+    }
+
+    if (tabledata[key] === 'array') {
+      string +=  key + '?:Array<any>; \n'
     }
 
     if (tabledata[key] === 'boolean') {
-      string +=  key + ':boolean;'
+      string +=  key + '?:boolean; \n'
     }
 
     if (index === (Object.keys(tabledata).length - 1)) {
