@@ -188,3 +188,32 @@ constructor(
 ```
 
 All done have fun :)
+
+### Collection 
+- coupons [x]
+- customers [x]
+- orders [x]
+- order-notes [x]
+- refunds []
+- products [x] []
+- product-variations []
+- product-attributes []
+- product-attribute-terms []
+- product-categories [x]
+- product-shipping-classes []
+- product-tags [x]
+- product-reviews []
+- reports []
+- tax-rates []
+- tax-classes []
+- webhooks []
+- settings []
+- setting-options []
+- payment-gateways []
+- shipping-zones []
+- shipping-zone-locations []
+- shipping-zone-methods []
+- shipping-methods []
+- system-status []
+- system-status-tools []
+- data []
