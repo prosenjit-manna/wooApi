@@ -189,6 +189,9 @@ constructor(
 
 All done have fun :)
 
+### Woocommerce Rest API doc
+https://woocommerce.github.io/woocommerce-rest-api-docs/
+
 ### Progress 
 - coupons [x]
 - customers [x]

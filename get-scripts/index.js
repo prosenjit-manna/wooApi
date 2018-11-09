@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer');
-const url = 'https://woocommerce.github.io/woocommerce-rest-api-docs/#order-refund-line-items-properties';
-const id = '#order-refund-line-items-properties';
+const url = 'https://woocommerce.github.io/woocommerce-rest-api-docs/#product-variations';
+const id = '#product-variation-meta-data-properties';
 const tablerow = id + ' + table tbody tr';
 
 
@@ -49,9 +49,18 @@ const tablerow = id + ' + table tbody tr';
 
   
   var string = '';
+  var className = id.split('-');
+  className.forEach((item, index) => {
+    if (index === 0) {
+      const text = item.replace('#', '')
+      string += 'export interface ' + text.charAt(0).toUpperCase() + text.slice(1);
+    } else {
+      string += item.charAt(0).toUpperCase() + item.slice(1);
+    }
+  });
   Object.keys(tabledata).forEach((key, index) => {
     if (index === 0) {
-      string = '{';
+      string += '{ \n';
     }
 
     if (tabledata[key] === 'number') {
@@ -72,6 +81,10 @@ const tablerow = id + ' + table tbody tr';
 
     if (tabledata[key] === 'boolean') {
       string +=  key + '?:boolean; \n'
+    }
+
+    if (tabledata[key] === 'object') {
+      string +=  key + '?:any; \n'
     }
 
     if (index === (Object.keys(tabledata).length - 1)) {
