@@ -18,6 +18,8 @@ export * from './categories/product-categories.interface';
 export * from './categories/woocommerce-categories.service';
 export * from './tags/product-tags.interface';
 export * from './tags/woocommerce-tags.service';
+export * from './product-variation/product-variation.interface';
+export * from './product-variation/product-variation.service';
 
 // Extra
 export * from './auth/auth.interface';

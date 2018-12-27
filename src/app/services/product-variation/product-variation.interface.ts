@@ -33,7 +33,7 @@ export interface ProductVariation {
   backorders_allowed?: boolean;
   backordered?: boolean;
   weight?: string;
-  ProductVariationDimensions?: any;
+  dimensions?: ProductVariationDimensions;
   shipping_class?: string;
   shipping_class_id?: string;
   image?: ProductVariationImage;
