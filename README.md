@@ -199,7 +199,7 @@ https://woocommerce.github.io/woocommerce-rest-api-docs/
 - order-notes [x]
 - refunds [x]
 - products [x]
-- product-variations []
+- product-variations [x]
 - product-attributes []
 - product-attribute-terms []
 - product-categories [x]
