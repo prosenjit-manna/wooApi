@@ -1,6 +1,7 @@
 const puppeteer = require('puppeteer');
-const url = 'https://woocommerce.github.io/woocommerce-rest-api-docs/#product-variations';
-const id = '#product-variation-meta-data-properties';
+const idname = 'product-review-properties';
+const url = `https://woocommerce.github.io/woocommerce-rest-api-docs/#${idname}`;
+const id = `#${idname}`;
 const tablerow = id + ' + table tbody tr';
 
 
@@ -22,6 +23,7 @@ const tablerow = id + ' + table tbody tr';
   const tabledata =  await page.evaluate((id) => {
     const obj = {};
     var rows = document.querySelectorAll(id + ' + table tbody tr');
+
     rows.forEach((item, index) => {
       var row = `${id} + table tbody tr:nth-child(${index + 1})`
       var attr =  document.querySelector(`${row} td:nth-child(1)`);
