@@ -44,6 +44,7 @@ export interface Order {
 }
 
 export interface Billing {
+    first_name?: string;
     last_name?: string;
     company?: string;
     address_1?: string;
