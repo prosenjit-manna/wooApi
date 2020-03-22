@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-
 import { WoocommerceHelperService } from '../helper.service';
 import { OrderNote, OrderNoteRes } from './order-notes.interface';
+
 
 @Injectable()
 export class WoocommerceOrderNoteService {
@@ -37,8 +37,8 @@ export class WoocommerceOrderNoteService {
    * List all order notes
    * URL: https://woocommerce.github.io/woocommerce-rest-api-docs/#list-all-order-notes
    */
-  retriveNotes(id: number ): Observable<OrderNoteRes> {
-    return this.httpClient.get<OrderNoteRes>(`orders/${id}/notes/`)
+  retriveNotes(id: number ): Observable<OrderNoteRes[]> {
+    return this.httpClient.get<OrderNoteRes[]>(`orders/${id}/notes/`)
       .pipe(catchError(err => this.wooHelper.handleError(err)));
   }
 
