@@ -1,7 +1,7 @@
 import { HttpParams } from '@angular/common/http';
 
 export interface Order {
-    id?: string;
+    id?: number;
     parent_id?: number;
     number?: string;
     order_key?: string;
