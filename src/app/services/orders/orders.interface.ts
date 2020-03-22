@@ -58,6 +58,7 @@ export interface Billing {
 }
 
 export interface Shipping {
+    first_name?: string;
     last_name?: string;
     company?: string;
     address_1?: string;
