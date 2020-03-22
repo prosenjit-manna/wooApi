@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-
 import { WoocommerceHelperService } from '../helper.service';
-import { Order } from './orders.interface';
+import { ListOrderParameters, Order } from './orders.interface';
+
 
 @Injectable()
 export class WoocommerceOrderService {
@@ -24,8 +24,8 @@ export class WoocommerceOrderService {
       .pipe(catchError(err => this.wooHelper.handleError(err)));
   }
 
-  listAllOrder(): Observable<Order[]>  {
-    return this.httpClient.get<Order[]>(`orders`)
+  listAllOrders(params?: ListOrderParameters): Observable<Order[]>  {
+    return this.httpClient.get<Order[]>(`orders`, {params: params || {}})
       .pipe(catchError(err => this.wooHelper.handleError(err)));
   }
 

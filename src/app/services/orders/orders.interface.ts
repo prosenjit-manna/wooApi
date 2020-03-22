@@ -1,3 +1,5 @@
+import { HttpParams } from '@angular/common/http';
+
 export interface Order {
     id?: string;
     parent_id?: number;
@@ -43,7 +45,7 @@ export interface Order {
     set_paid?: boolean;
 }
 
-export interface Billing {
+export interface Address {
     first_name?: string;
     last_name?: string;
     company?: string;
@@ -57,16 +59,12 @@ export interface Billing {
     phone?: string;
 }
 
-export interface Shipping {
-    first_name?: string;
-    last_name?: string;
-    company?: string;
-    address_1?: string;
-    address_2?: string;
-    city?: string;
-    state?: string;
-    postcode?: string;
-    country?: string;
+export interface Billing extends Address {
+
+}
+
+export interface Shipping extends Address {
+
 }
 
 export interface OrderItem {
@@ -93,4 +91,24 @@ export interface OrderTax {
     tax_total: string;
     shipping_tax_total: string;
     meta_data: Array<any>;
+}
+
+export interface ListOrderParameters extends HttpParams {
+    context?: string;
+    page?: number;
+    per_page?: number;
+    search?: string;
+    after?: string;
+    before?: string;
+    exclude?: string[];
+    include?: string[];
+    offset?: number;
+    order?: string;
+    orderby?: string;
+    parent?: string[];
+    parent_exclude?: string[];
+    status?: string;
+    customer?: number;
+    product?: number;
+    dp?: number;
 }
