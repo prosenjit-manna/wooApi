@@ -37,8 +37,8 @@ export class WoocommerceOrderNoteService {
    * List all order notes
    * URL: https://woocommerce.github.io/woocommerce-rest-api-docs/#list-all-order-notes
    */
-  retriveNotes(id: number ): Observable<OrderNoteRes> {
-    return this.httpClient.get<OrderNoteRes>(`orders/${id}/notes/`)
+  retriveNotes(id: number ): Observable<OrderNoteRes[]> {
+    return this.httpClient.get<OrderNoteRes[]>(`orders/${id}/notes/`)
       .pipe(catchError(err => this.wooHelper.handleError(err)));
   }
 
