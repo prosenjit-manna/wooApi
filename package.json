@@ -1,4 +1,5 @@
 {
+  "$schema": "./node_modules/ng-packagr/package.schema.json",
   "name": "ngx-wooapi",
   "version": "6.0.13",
   "repository": {
@@ -13,10 +14,21 @@
     "name": "Angular Studio",
     "url": "https://angular-studio.io"
   },
+  "ngPackage": {
+    "lib": {
+      "entryFile": "src/app/services/wooApi.ts"
+    },
+    "whitelistedNonPeerDependencies": [
+      "angular",
+      "core-js",
+      "rxjs",
+      "zone.js"
+    ]
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng-packagr -p ng-package.json",
+    "build": "ng-packagr -p package.json",
     "deploy": "npm publish",
     "lint": "ng lint",
     "doc": "typedoc --theme ./default --out ./docs/ ./src/app/services/ --module system && cp .nojekyll ./docs/",
@@ -24,31 +36,30 @@
   },
   "private": false,
   "dependencies": {
-    "@angular/animations": "^7.2.14",
-    "@angular/common": "^7.2.14",
-    "@angular/compiler": "^7.2.14",
-    "@angular/core": "^7.2.14",
-    "@angular/forms": "^7.2.14",
-    "@angular/http": "^7.2.14",
-    "@angular/platform-browser": "^7.2.14",
-    "@angular/platform-browser-dynamic": "^7.2.14",
-    "@angular/router": "^7.2.14",
-    "core-js": "^2.5.4",
-    "rxjs": "^6.0.0",
-    "tslib": "^1.9.0",
-    "zone.js": "^0.8.26"
+    "@angular/animations": "^9.0.7",
+    "@angular/common": "^9.0.7",
+    "@angular/compiler": "^9.0.7",
+    "@angular/core": "^9.0.7",
+    "@angular/forms": "^9.0.7",
+    "@angular/platform-browser": "^9.0.7",
+    "@angular/platform-browser-dynamic": "^9.0.7",
+    "@angular/router": "^9.0.7",
+    "core-js": "^3.6.4",
+    "rxjs": "^6.5.4",
+    "tslib": "^1.11.1",
+    "zone.js": "^0.10.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.900.7",
-    "@angular/cli": "~7.3.8",
-    "@angular/compiler-cli": "^7.2.14",
-    "@angular/language-service": "^7.2.14",
-    "@types/node": "~8.9.4",
-    "codelyzer": "~4.2.1",
-    "ng-packagr": "^3.0.6",
-    "ts-node": "~5.0.1",
-    "tslint": "~5.9.1",
+    "@angular/cli": "~9.0.7",
+    "@angular/compiler-cli": "^9.0.7",
+    "@angular/language-service": "^9.0.7",
+    "@types/node": "~13.9.3",
+    "codelyzer": "~5.2.1",
+    "ng-packagr": "^9.0.3",
+    "ts-node": "~8.8.1",
+    "tslint": "~6.1.0",
     "typedoc": "^0.17.3",
-    "typescript": "~3.2.4"
+    "typescript": "~3.7.5"
   }
 }
