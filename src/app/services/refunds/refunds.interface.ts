@@ -1,4 +1,4 @@
-export interface Refunds {
+export interface Refund {
   id?: number;
   date_created?: Date;
   date_created_gmt?: Date;
