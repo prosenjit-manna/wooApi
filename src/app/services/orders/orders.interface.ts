@@ -1,4 +1,3 @@
-import { HttpParams } from '@angular/common/http';
 
 export interface Order {
     id?: number;
@@ -93,7 +92,7 @@ export interface OrderTax {
     meta_data: Array<any>;
 }
 
-export interface ListOrderParameters extends HttpParams {
+export interface ListOrderParameters {
     context?: string;
     page?: number;
     per_page?: number;
