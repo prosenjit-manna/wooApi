@@ -2,7 +2,7 @@
     "name": "wooapi-get-scripts",
     "version": "1.0.0",
     "dependencies": {
-        "puppeteer": "^1.8.0"
+        "puppeteer": "^1.13.0"
     },
     "scripts": {
         "get": "node ./index.js"
