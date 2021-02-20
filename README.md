@@ -1,9 +1,10 @@
 # WooApi
 Woocommerce API service with angular
 
-## Supports angular version
-- master - Angular 6
-- v5 - Angular 5
+## Dependency
+- HttpClientModule
+import { HttpClientModule } from '@angular/common/http';
+
 
 ## Supports woocommerce API version
 - Supports V2 version: base url https://example.com/wp-json/wc/v2
@@ -53,8 +54,8 @@ After installatiion activate user controller from JSON-API settings. Under setti
 
 - `yarn add ngx-wooapi@5.x.x` or `npm install --save ngx-wooapi@5.x.x` for angular 5 support
 - `yarn add ngx-wooapi@6.x.x` or `npm install --save ngx-wooapi@6.x.x` for angular 6 support
-- 
-- Add interceptor 
+-
+- Add interceptor
 
 ```
 import {
@@ -137,7 +138,7 @@ Add this code in your app.module.ts
  ]
 
 ```
-Add new property in environment.ts for angular webapp 
+Add new property in environment.ts for angular webapp
 
 ```
 export const environment = {
@@ -150,7 +151,7 @@ export const environment = {
 };
 ```
 
-Add new providers in app.module 
+Add new providers in app.module
 ```
 import {
   WoocommerceProductsService,
@@ -192,7 +193,7 @@ All done have fun :)
 ### Woocommerce Rest API doc
 https://woocommerce.github.io/woocommerce-rest-api-docs/
 
-### Progress 
+### Progress
 - coupons [x]
 - customers [x]
 - orders [x]

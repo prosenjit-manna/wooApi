@@ -1,0 +1,377 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>ngx-wooapi</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">ngx-wooapi</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1>ngx-wooapi</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#wooapi" id="wooapi" style="color: inherit; text-decoration: none;">
+					<h1>WooApi</h1>
+				</a>
+				<p>Woocommerce API service with angular</p>
+				<a href="#dependency" id="dependency" style="color: inherit; text-decoration: none;">
+					<h2>Dependency</h2>
+				</a>
+				<ul>
+					<li>HttpClientModule
+					import { HttpClientModule } from &#39;@angular/common/http&#39;;</li>
+				</ul>
+				<a href="#supports-woocommerce-api-version" id="supports-woocommerce-api-version" style="color: inherit; text-decoration: none;">
+					<h2>Supports woocommerce API version</h2>
+				</a>
+				<ul>
+					<li>Supports V2 version: base url <a href="https://example.com/wp-json/wc/v2">https://example.com/wp-json/wc/v2</a></li>
+					<li>Please see <code>environment</code> constact and interceptor for frontend setup</li>
+				</ul>
+				<p>Tested with https protocol. Wordpress version 4.9.6 and WooCommerce version 3.4.1</p>
+				<a href="#setup-instruction" id="setup-instruction" style="color: inherit; text-decoration: none;">
+					<h2>Setup instruction</h2>
+				</a>
+				<ul>
+					<li><a href="#backend-setup-instruction">Backend setup</a></li>
+					<li><a href="#frontend-setup-instruction">Frontend setup</a></li>
+				</ul>
+				<a href="#api-doc" id="api-doc" style="color: inherit; text-decoration: none;">
+					<h2>Api Doc</h2>
+				</a>
+				<ul>
+					<li><a href="https://angular-studio.github.io/wooApi">https://angular-studio.github.io/wooApi</a></li>
+					<li><a href="https://angular-studio.github.io/wooApi/v5">https://angular-studio.github.io/wooApi/v5</a></li>
+				</ul>
+				<a href="#backend-setup-instruction" id="backend-setup-instruction" style="color: inherit; text-decoration: none;">
+					<h2>Backend Setup instruction</h2>
+				</a>
+				<a href="#enable-cors" id="enable-cors" style="color: inherit; text-decoration: none;">
+					<h3>Enable CORS</h3>
+				</a>
+				<p>Add this code in function.php</p>
+				<pre><code><span class="hljs-selector-tag">add_action</span>( <span class="hljs-string">&#x27;init&#x27;</span>, <span class="hljs-string">&#x27;nt_cors_enable&#x27;</span> );
+
+<span class="hljs-selector-tag">function</span> <span class="hljs-selector-tag">nt_cors_enable</span>() {
+  <span class="hljs-selector-tag">header</span>(<span class="hljs-string">&quot;Access-Control-Allow-Origin: &quot;</span> . get_http_origin());
+  <span class="hljs-selector-tag">header</span>(<span class="hljs-string">&quot;Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE&quot;</span>);
+  <span class="hljs-selector-tag">header</span>(<span class="hljs-string">&quot;Access-Control-Allow-Credentials: true&quot;</span>);
+  <span class="hljs-selector-tag">header</span>(<span class="hljs-string">&quot;Access-Control-Allow-Headers: Authorization, Content-Type&quot;</span>);
+  <span class="hljs-selector-tag">header</span>(<span class="hljs-string">&quot;Access-Control-Expose-Headers: x-wc-totalpages, x-wc-total&quot;</span>, false);
+  <span class="hljs-selector-tag">if</span> ( <span class="hljs-string">&#x27;OPTIONS&#x27;</span> == $_SERVER[<span class="hljs-string">&#x27;REQUEST_METHOD&#x27;</span>] ) {
+    <span class="hljs-selector-tag">status_header</span>(<span class="hljs-number">200</span>);
+    <span class="hljs-selector-tag">exit</span>();
+  }
+}</code></pre>
+				<a href="#auth-service-dependency" id="auth-service-dependency" style="color: inherit; text-decoration: none;">
+					<h3>Auth service dependency</h3>
+				</a>
+				<ul>
+					<li>Install JSON API user <a href="https://wordpress.org/plugins/json-api-user/">https://wordpress.org/plugins/json-api-user/</a>, <a href="https://wordpress.org/plugins/json-api/">https://wordpress.org/plugins/json-api/</a></li>
+					<li>Install JWT support <a href="https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/">https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/</a></li>
+				</ul>
+				<p>After installatiion activate user controller from JSON-API settings. Under settings &gt; JSON-API &gt; User &gt; activate.</p>
+				<a href="#frontend-setup-instruction" id="frontend-setup-instruction" style="color: inherit; text-decoration: none;">
+					<h2>Frontend Setup instruction</h2>
+				</a>
+				<ul>
+					<li><code>yarn add ngx-wooapi@5.x.x</code> or <code>npm install --save ngx-wooapi@5.x.x</code> for angular 5 support</li>
+					<li><code>yarn add ngx-wooapi@6.x.x</code> or <code>npm install --save ngx-wooapi@6.x.x</code> for angular 6 support</li>
+					<li></li>
+					<li>Add interceptor</li>
+				</ul>
+				<pre><code><span class="hljs-keyword">import</span> {
+  Injectable,
+  <span class="hljs-comment">// Injector</span>
+ } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
+<span class="hljs-keyword">import</span> {
+  HttpRequest,
+  HttpHandler,
+  HttpEvent,
+  HttpInterceptor,
+  HttpErrorResponse,
+} <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/common/http&#x27;</span>;
+<span class="hljs-comment">// import { Router } from &#x27;@angular/router&#x27;;</span>
+<span class="hljs-keyword">import</span> { catchError } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rxjs/operators&#x27;</span>;
+<span class="hljs-keyword">import</span> { Observable, throwError } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rxjs&#x27;</span>;
+
+<span class="hljs-comment">// import { AuthService } from &#x27;./auth.service&#x27;;</span>
+<span class="hljs-keyword">import</span> { environment } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;../environments/environment&#x27;</span>;
+
+<span class="hljs-meta">@Injectable</span>()
+<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AppInterceptor</span> <span class="hljs-title">implements</span> <span class="hljs-title">HttpInterceptor</span> </span>{
+
+  <span class="hljs-function"><span class="hljs-title">constructor</span>(<span class="hljs-params">
+    <span class="hljs-comment">// private injector: Injector,</span>
+    <span class="hljs-comment">// private router: Router</span>
+  </span>)</span> { }
+
+  <span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-title">includeWooAuth</span>(<span class="hljs-params">url</span>)</span> {
+    <span class="hljs-keyword">const</span> wooAuth = <span class="hljs-string">`consumer_key=<span class="hljs-subst">${environment.woocommerce.consumer_key}</span>&amp;consumer_secret=<span class="hljs-subst">${environment.woocommerce.consumer_secret}</span>`</span>;
+    <span class="hljs-keyword">const</span> hasQuery = url.includes(<span class="hljs-string">&#x27;?&#x27;</span>);
+    <span class="hljs-keyword">let</span> return_url = <span class="hljs-string">&#x27;&#x27;</span>;
+    <span class="hljs-keyword">if</span> (hasQuery) {
+      return_url =  wooAuth;
+    } <span class="hljs-keyword">else</span> {
+      return_url = <span class="hljs-string">&#x27;?&#x27;</span> + wooAuth;
+    }
+    <span class="hljs-keyword">return</span> return_url;
+  }
+
+  intercept(request: HttpRequest&lt;<span class="hljs-built_in">any</span>&gt;, next: HttpHandler): Observable&lt;HttpEvent&lt;<span class="hljs-built_in">any</span>&gt;&gt; {
+    <span class="hljs-keyword">let</span> authRequest;
+    <span class="hljs-comment">// const auth = this.injector.get(AuthService);</span>
+    <span class="hljs-keyword">let</span> requestUrl = <span class="hljs-string">&#x27;&#x27;</span>;
+    <span class="hljs-keyword">if</span> (request.url.includes(<span class="hljs-string">&#x27;api&#x27;</span>) || request.url.includes(<span class="hljs-string">&#x27;jwt&#x27;</span>)) {
+      requestUrl = <span class="hljs-string">`<span class="hljs-subst">${environment.origin}</span>/<span class="hljs-subst">${request.url}</span>`</span>;
+    } <span class="hljs-keyword">else</span> {
+      requestUrl = <span class="hljs-string">`<span class="hljs-subst">${environment.origin}</span><span class="hljs-subst">${environment.wcEndpoint}</span>/<span class="hljs-subst">${request.url}</span><span class="hljs-subst">${<span class="hljs-built_in">this</span>.includeWooAuth(request.url)}</span>`</span>;
+    }
+    authRequest = request.clone({
+      <span class="hljs-attr">url</span>: requestUrl
+    });
+
+    <span class="hljs-keyword">return</span> next.handle(authRequest)
+      .pipe(
+        catchError(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> {
+          <span class="hljs-keyword">if</span> (err <span class="hljs-keyword">instanceof</span> HttpErrorResponse &amp;&amp; err.status === <span class="hljs-number">0</span>) {
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Check Your Internet Connection And Try again Later&#x27;</span>);
+          } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (err <span class="hljs-keyword">instanceof</span> HttpErrorResponse &amp;&amp; err.status === <span class="hljs-number">401</span>) {
+            <span class="hljs-comment">// auth.setToken(null);</span>
+            <span class="hljs-comment">// this.router.navigate([&#x27;/&#x27;, &#x27;login&#x27;]);</span>
+          }
+          <span class="hljs-keyword">return</span> throwError(err);
+        })
+      );
+  }
+}
+</code></pre><p>Add this code in your app.module.ts</p>
+				<pre><code> <span class="hljs-attr">providers:</span> [
+    {
+      <span class="hljs-attr">provide:</span> <span class="hljs-string">HTTP_INTERCEPTORS</span>,
+      <span class="hljs-attr">useClass:</span> <span class="hljs-string">AppInterceptor</span>,
+      <span class="hljs-attr">multi:</span> <span class="hljs-literal">true</span>
+    }
+ ]
+</code></pre><p>Add new property in environment.ts for angular webapp</p>
+				<pre><code><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> environment = {
+  origin: <span class="hljs-string">&#x27;https://example.com/appwoo&#x27;</span>,
+  wcEndpoint: <span class="hljs-string">&#x27;/wp-json/wc/v2&#x27;</span>,
+  woocommerce: {
+    consumer_key:  <span class="hljs-string">&#x27;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#x27;</span>,
+    consumer_secret: <span class="hljs-string">&#x27;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#x27;</span>
+  }
+};</code></pre><p>Add new providers in app.module</p>
+				<pre><code><span class="hljs-keyword">import</span> {
+  WoocommerceProductsService,
+  WoocommerceHelperService
+} <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;ngx-wooapi&#x27;</span>;</code></pre><p>Add these providers in providers array</p>
+				<pre><code><span class="hljs-attribute">providers</span>:<span class="hljs-meta"> [
+  WoocommerceProductsService,
+  WoocommerceHelperService
+]</span></code></pre><p>Now use it in component</p>
+				<pre><code>import <span class="hljs-comment">{
+  WoocommerceProductsService
+}</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;ngx-wooapi&#x27;</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+    <span class="hljs-keyword">private</span> wooProducs: WoocommerceProductsService
+  )</span> <span class="hljs-comment">{ }</span>
+
+  <span class="hljs-title">ngOnInit</span><span class="hljs-params">()</span> <span class="hljs-comment">{
+    this.wooProducs.retrieveProducts().subscribe(response =&gt; {
+      console.log(response);
+    }</span>, <span class="hljs-title">err</span> =&gt; <span class="hljs-comment">{
+      console.log(err);
+    }</span>);</span>
+  }
+</code></pre><p>All done have fun :)</p>
+				<a href="#woocommerce-rest-api-doc" id="woocommerce-rest-api-doc" style="color: inherit; text-decoration: none;">
+					<h3>Woocommerce Rest API doc</h3>
+				</a>
+				<p><a href="https://woocommerce.github.io/woocommerce-rest-api-docs/">https://woocommerce.github.io/woocommerce-rest-api-docs/</a></p>
+				<a href="#progress" id="progress" style="color: inherit; text-decoration: none;">
+					<h3>Progress</h3>
+				</a>
+				<ul>
+					<li>coupons [x]</li>
+					<li>customers [x]</li>
+					<li>orders [x]</li>
+					<li>order-notes [x]</li>
+					<li>refunds [x]</li>
+					<li>products [x]</li>
+					<li>product-variations [x]</li>
+					<li>product-attributes [x]</li>
+					<li>product-attribute-terms []</li>
+					<li>product-categories [x]</li>
+					<li>product-shipping-classes []</li>
+					<li>product-tags [x]</li>
+					<li>product-reviews [x]</li>
+					<li>reports []</li>
+					<li>tax-rates []</li>
+					<li>tax-classes []</li>
+					<li>webhooks []</li>
+					<li>settings []</li>
+					<li>setting-options []</li>
+					<li>payment-gateways []</li>
+					<li>shipping-zones []</li>
+					<li>shipping-zone-locations []</li>
+					<li>shipping-zone-methods []</li>
+					<li>shipping-methods []</li>
+					<li>system-status []</li>
+					<li>system-status-tools []</li>
+					<li>data []</li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_auth_auth_interface_.html">&quot;auth/auth.interface&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_auth_auth_service_.html">&quot;auth/auth.service&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_categories_product_categories_interface_.html">&quot;categories/product-<wbr>categories.interface&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_categories_woocommerce_categories_service_.html">&quot;categories/woocommerce-<wbr>categories.service&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_coupon_coupon_interface_.html">&quot;coupon/coupon.interface&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_coupon_coupon_service_.html">&quot;coupon/coupon.service&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_customer_customer_interface_.html">&quot;customer/customer.interface&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_customer_customer_service_.html">&quot;customer/customer.service&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_helper_service_.html">&quot;helper.service&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_order_notes_order_notes_interface_.html">&quot;order-<wbr>notes/order-<wbr>notes.interface&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_order_notes_order_notes_service_.html">&quot;order-<wbr>notes/order-<wbr>notes.service&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_orders_order_service_.html">&quot;orders/order.service&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_orders_orders_interface_.html">&quot;orders/orders.interface&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_product_attributes_product_attributes_interface_.html">&quot;product-<wbr>attributes/product-<wbr>attributes.interface&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_product_attributes_product_attributes_service_.html">&quot;product-<wbr>attributes/product-<wbr>attributes.service&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_product_review_product_review_service_.html">&quot;product-<wbr>review/product-<wbr>review.service&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_product_variation_product_variation_interface_.html">&quot;product-<wbr>variation/product-<wbr>variation.interface&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_product_variation_product_variation_service_.html">&quot;product-<wbr>variation/product-<wbr>variation.service&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_products_product_interface_.html">&quot;products/product.interface&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_products_woocommerce_products_service_.html">&quot;products/woocommerce-<wbr>products.service&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_refunds_refunds_interface_.html">&quot;refunds/refunds.interface&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_refunds_refunds_service_.html">&quot;refunds/refunds.service&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_tags_product_tags_interface_.html">&quot;tags/product-<wbr>tags.interface&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_tags_woocommerce_tags_service_.html">&quot;tags/woocommerce-<wbr>tags.service&quot;</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>
