@@ -52,8 +52,11 @@ After installatiion activate user controller from JSON-API settings. Under setti
 
 ## Frontend Setup instruction
 
-- `yarn add ngx-wooapi@5.x.x` or `npm install --save ngx-wooapi@5.x.x` for angular 5 support
-- `yarn add ngx-wooapi@6.x.x` or `npm install --save ngx-wooapi@6.x.x` for angular 6 support
+- `npm install --save ngx-wooapi@5.x.x` for angular 5 support
+- `npm install --save ngx-wooapi` for angular 6 +
+
+Also you can download the repo and you can use directly without NPM if you need some modification
+
 -
 - Add interceptor
 
