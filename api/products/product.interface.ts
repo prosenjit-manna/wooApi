@@ -55,7 +55,7 @@ export interface Product {
   cross_sell_ids?: Array<any>;
   parent_id?: number;
   purchase_note?: string;
-  categories?: Array<any>;
+  categories?: Category[];
   tags?: Array<any>;
   attributes?: Array<any>;
   default_attributes?: Array<any>;
@@ -64,6 +64,12 @@ export interface Product {
   menu_order?: number;
   meta_data?: Array<any>;
   images: Images[];
+}
+
+export interface  Category {
+  id: number;
+  name: string;
+  slug: string;
 }
 
 export interface Images {
