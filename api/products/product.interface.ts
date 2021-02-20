@@ -107,7 +107,7 @@ export interface ProductQuery {
   include?: Array<any>;
   offset?: number;
   order?: ProductOrder;
-  orderby?: ProductOrderBy;
+  orderby?: ProductOrderBy | string;
   parent?: Array<string>;
   parent_exclude?: Array<string>;
   slug?: string;
