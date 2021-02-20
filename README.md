@@ -7,11 +7,11 @@ import { HttpClientModule } from '@angular/common/http';
 
 
 ## Supports woocommerce API version
-- Supports V2 version: base url https://example.com/wp-json/wc/v2
-- Please see `environment` constact and interceptor for frontend setup
+- Supports V2 version / V3 Version: base url https://example.com/wp-json/wc/v2 Just change the `wcEndpoint` value in environment. For the type reference If have to use github version directly to change the interface
 
+- Please see `environment` constant and interceptor for frontend setup
 
-Tested with https protocol. Wordpress version 4.9.6 and WooCommerce version 3.4.1
+- https protocol is required
 
 ## Setup instruction
 - [Backend setup](#backend-setup-instruction)
