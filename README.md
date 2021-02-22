@@ -18,8 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 - [Frontend setup](#frontend-setup-instruction)
 
 ## Api Doc
-- https://angular-studio.github.io/wooApi
-- https://angular-studio.github.io/wooApi/v5
+- https://prosenjit-manna.github.io/wooApi
 
 ## Backend Setup instruction
 
@@ -154,21 +153,6 @@ export const environment = {
 };
 ```
 
-Add new providers in app.module
-```
-import {
-  WoocommerceProductsService,
-  WoocommerceHelperService
-} from 'ngx-wooapi';
-```
-Add these providers in providers array
-
-```
-providers: [
-  WoocommerceProductsService,
-  WoocommerceHelperService
-]
-```
 
 Now use it in component
 
