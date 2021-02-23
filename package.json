@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/ng-packagr/package.schema.json",
   "name": "ngx-wooapi",
-  "version": "6.0.13",
+  "version": "11.0.1",
   "repository": {
     "url": "https://github.com/angular-studio/wooApi"
   },
