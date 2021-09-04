@@ -1,6 +1,6 @@
 import { Product } from "../genarated/product.interface";
-import { wooApiResponse } from "../interface";
+import { wooApiResponse } from "../response-interface";
 
-export interface ProductResponse extends wooApiResponse {
+export interface ProductsResponse extends wooApiResponse {
   products: Product[]
 }

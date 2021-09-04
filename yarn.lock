@@ -5074,6 +5074,13 @@ ng-packagr@^12.2.1:
     sass "^1.32.8"
     stylus "^0.54.8"
 
+ngx-json-viewer@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/ngx-json-viewer/-/ngx-json-viewer-3.0.2.tgz#91e72fe41f80756181aa0d36b4bfaeac5df5b1b1"
+  integrity sha512-XBj0DgUDIBOeJuAczlFQIIMCaELJGoEbvjBWIXHIh2QebiB5lY6itslRkbE5TAgFn1bYK+2ToxqwspLgP4DDJg==
+  dependencies:
+    tslib "^2.0.0"
+
 nice-napi@^1.0.2:
   version "1.0.2"
   resolved "https://registry.npmjs.org/nice-napi/-/nice-napi-1.0.2.tgz"

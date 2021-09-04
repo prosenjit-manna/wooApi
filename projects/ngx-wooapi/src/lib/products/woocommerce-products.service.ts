@@ -7,7 +7,7 @@ import {
   Product, Review,
  } from '../interface/genarated/product.interface';
 import { WoocommerceHelperService } from '../helper.service';
-import { ProductResponse } from '../interface/created/product.interface';
+import { ProductsResponse } from '../interface/created/product.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -19,8 +19,8 @@ export class WoocommerceProductsService {
     private wooHelper: WoocommerceHelperService
   ) { }
 
-  createProduct(payload: Product): Observable<ProductResponse> {
-    return this.httpClient.post<ProductResponse>(`products`, payload)
+  createProduct(payload: Product): Observable<ProductsResponse> {
+    return this.httpClient.post<ProductsResponse>(`products`, payload)
       .pipe(catchError(err => this.wooHelper.handleError(err)));
   }
 
@@ -29,7 +29,7 @@ export class WoocommerceProductsService {
       .pipe(catchError(err => this.wooHelper.handleError(err)));
   }
 
-  getProducts(query?: any): Observable<ProductResponse> {
+  getProducts(query?: any): Observable<ProductsResponse> {
     return this.httpClient.get(`products`, {params: this.wooHelper.includeQuery(query), observe: 'response'})
       .pipe(
         map(value => this.wooHelper.includeResponseHeader(value, 'products')),
