@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "build:wooApi": "ng build ngx-wooapi"
+    "build:wooApi": "ng build ngx-wooapi",
+    "doc": "typedoc --theme ./default --out ./docs/ ./projects/ngx-wooapi/src/lib/  && cp .nojekyll ./docs/"
   },
   "private": true,
   "dependencies": {

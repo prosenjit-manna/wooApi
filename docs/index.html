@@ -53,7 +53,7 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="globals.html">Globals</a>
+					<a href="modules.html">Globals</a>
 				</li>
 			</ul>
 			<h1>ngx-wooapi</h1>
@@ -79,10 +79,13 @@
 					<h2>Supports woocommerce API version</h2>
 				</a>
 				<ul>
-					<li>Supports V2 version: base url <a href="https://example.com/wp-json/wc/v2">https://example.com/wp-json/wc/v2</a></li>
-					<li>Please see <code>environment</code> constact and interceptor for frontend setup</li>
+					<li><p>Supports V2 version / V3 Version: base url <a href="https://example.com/wp-json/wc/v2">https://example.com/wp-json/wc/v2</a> Just change the <code>wcEndpoint</code> value in environment. For the type reference If have to use github version directly to change the interface</p>
+					</li>
+					<li><p>Please see <code>environment</code> constant and interceptor for frontend setup</p>
+					</li>
+					<li><p>https protocol is required</p>
+					</li>
 				</ul>
-				<p>Tested with https protocol. Wordpress version 4.9.6 and WooCommerce version 3.4.1</p>
 				<a href="#setup-instruction" id="setup-instruction" style="color: inherit; text-decoration: none;">
 					<h2>Setup instruction</h2>
 				</a>
@@ -94,8 +97,7 @@
 					<h2>Api Doc</h2>
 				</a>
 				<ul>
-					<li><a href="https://angular-studio.github.io/wooApi">https://angular-studio.github.io/wooApi</a></li>
-					<li><a href="https://angular-studio.github.io/wooApi/v5">https://angular-studio.github.io/wooApi/v5</a></li>
+					<li><a href="https://prosenjit-manna.github.io/wooApi">https://prosenjit-manna.github.io/wooApi</a></li>
 				</ul>
 				<a href="#backend-setup-instruction" id="backend-setup-instruction" style="color: inherit; text-decoration: none;">
 					<h2>Backend Setup instruction</h2>
@@ -104,19 +106,20 @@
 					<h3>Enable CORS</h3>
 				</a>
 				<p>Add this code in function.php</p>
-				<pre><code><span class="hljs-selector-tag">add_action</span>( <span class="hljs-string">&#x27;init&#x27;</span>, <span class="hljs-string">&#x27;nt_cors_enable&#x27;</span> );
+				<pre><code><span style="color: #795E26">add_action</span><span style="color: #000000">( </span><span style="color: #A31515">&#039;init&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;nt_cors_enable&#039;</span><span style="color: #000000"> );</span>
 
-<span class="hljs-selector-tag">function</span> <span class="hljs-selector-tag">nt_cors_enable</span>() {
-  <span class="hljs-selector-tag">header</span>(<span class="hljs-string">&quot;Access-Control-Allow-Origin: &quot;</span> . get_http_origin());
-  <span class="hljs-selector-tag">header</span>(<span class="hljs-string">&quot;Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE&quot;</span>);
-  <span class="hljs-selector-tag">header</span>(<span class="hljs-string">&quot;Access-Control-Allow-Credentials: true&quot;</span>);
-  <span class="hljs-selector-tag">header</span>(<span class="hljs-string">&quot;Access-Control-Allow-Headers: Authorization, Content-Type&quot;</span>);
-  <span class="hljs-selector-tag">header</span>(<span class="hljs-string">&quot;Access-Control-Expose-Headers: x-wc-totalpages, x-wc-total&quot;</span>, false);
-  <span class="hljs-selector-tag">if</span> ( <span class="hljs-string">&#x27;OPTIONS&#x27;</span> == $_SERVER[<span class="hljs-string">&#x27;REQUEST_METHOD&#x27;</span>] ) {
-    <span class="hljs-selector-tag">status_header</span>(<span class="hljs-number">200</span>);
-    <span class="hljs-selector-tag">exit</span>();
-  }
-}</code></pre>
+<span style="color: #0000FF">function</span><span style="color: #000000"> </span><span style="color: #795E26">nt_cors_enable</span><span style="color: #000000">() {</span>
+<span style="color: #000000">  </span><span style="color: #795E26">header</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;Access-Control-Allow-Origin: &quot;</span><span style="color: #000000"> . </span><span style="color: #795E26">get_http_origin</span><span style="color: #000000">());</span>
+<span style="color: #000000">  </span><span style="color: #795E26">header</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE&quot;</span><span style="color: #000000">);</span>
+<span style="color: #000000">  </span><span style="color: #795E26">header</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;Access-Control-Allow-Credentials: true&quot;</span><span style="color: #000000">);</span>
+<span style="color: #000000">  </span><span style="color: #795E26">header</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;Access-Control-Allow-Headers: Authorization, Content-Type&quot;</span><span style="color: #000000">);</span>
+<span style="color: #000000">  </span><span style="color: #795E26">header</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;Access-Control-Expose-Headers: x-wc-totalpages, x-wc-total&quot;</span><span style="color: #000000">, </span><span style="color: #0000FF">false</span><span style="color: #000000">);</span>
+<span style="color: #000000">  </span><span style="color: #AF00DB">if</span><span style="color: #000000"> ( </span><span style="color: #A31515">&#039;OPTIONS&#039;</span><span style="color: #000000"> == </span><span style="color: #001080">$_SERVER</span><span style="color: #000000">[</span><span style="color: #A31515">&#039;REQUEST_METHOD&#039;</span><span style="color: #000000">] ) {</span>
+<span style="color: #000000">    </span><span style="color: #795E26">status_header</span><span style="color: #000000">(</span><span style="color: #098658">200</span><span style="color: #000000">);</span>
+<span style="color: #000000">    </span><span style="color: #795E26">exit</span><span style="color: #000000">();</span>
+<span style="color: #000000">  }</span>
+<span style="color: #000000">}</span>
+</code></pre>
 				<a href="#auth-service-dependency" id="auth-service-dependency" style="color: inherit; text-decoration: none;">
 					<h3>Auth service dependency</h3>
 				</a>
@@ -129,117 +132,119 @@
 					<h2>Frontend Setup instruction</h2>
 				</a>
 				<ul>
-					<li><code>yarn add ngx-wooapi@5.x.x</code> or <code>npm install --save ngx-wooapi@5.x.x</code> for angular 5 support</li>
-					<li><code>yarn add ngx-wooapi@6.x.x</code> or <code>npm install --save ngx-wooapi@6.x.x</code> for angular 6 support</li>
+					<li><code>npm install --save ngx-wooapi</code> for angular 12+</li>
+				</ul>
+				<p>Also you can download the repo and you can use directly without NPM if you need some modification</p>
+				<ul>
 					<li></li>
 					<li>Add interceptor</li>
 				</ul>
-				<pre><code><span class="hljs-keyword">import</span> {
-  Injectable,
-  <span class="hljs-comment">// Injector</span>
- } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
-<span class="hljs-keyword">import</span> {
-  HttpRequest,
-  HttpHandler,
-  HttpEvent,
-  HttpInterceptor,
-  HttpErrorResponse,
-} <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/common/http&#x27;</span>;
-<span class="hljs-comment">// import { Router } from &#x27;@angular/router&#x27;;</span>
-<span class="hljs-keyword">import</span> { catchError } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rxjs/operators&#x27;</span>;
-<span class="hljs-keyword">import</span> { Observable, throwError } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rxjs&#x27;</span>;
+				<pre><code><span style="color: #AF00DB">import</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">Injectable</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #008000">// Injector</span>
+<span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@angular/core&#039;</span><span style="color: #000000">;</span>
+<span style="color: #AF00DB">import</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">HttpRequest</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">HttpHandler</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">HttpEvent</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">HttpInterceptor</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">HttpErrorResponse</span><span style="color: #000000">,</span>
+<span style="color: #000000">} </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@angular/common/http&#039;</span><span style="color: #000000">;</span>
+<span style="color: #008000">// import { Router } from &#039;@angular/router&#039;;</span>
+<span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">catchError</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;rxjs/operators&#039;</span><span style="color: #000000">;</span>
+<span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">Observable</span><span style="color: #000000">, </span><span style="color: #001080">throwError</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;rxjs&#039;</span><span style="color: #000000">;</span>
 
-<span class="hljs-comment">// import { AuthService } from &#x27;./auth.service&#x27;;</span>
-<span class="hljs-keyword">import</span> { environment } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;../environments/environment&#x27;</span>;
+<span style="color: #008000">// import { AuthService } from &#039;./auth.service&#039;;</span>
+<span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">environment</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;../environments/environment&#039;</span><span style="color: #000000">;</span>
 
-<span class="hljs-meta">@Injectable</span>()
-<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AppInterceptor</span> <span class="hljs-title">implements</span> <span class="hljs-title">HttpInterceptor</span> </span>{
+<span style="color: #000000">@</span><span style="color: #795E26">Injectable</span><span style="color: #000000">()</span>
+<span style="color: #AF00DB">export</span><span style="color: #000000"> </span><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">AppInterceptor</span><span style="color: #000000"> </span><span style="color: #0000FF">implements</span><span style="color: #000000"> </span><span style="color: #267F99">HttpInterceptor</span><span style="color: #000000"> {</span>
 
-  <span class="hljs-function"><span class="hljs-title">constructor</span>(<span class="hljs-params">
-    <span class="hljs-comment">// private injector: Injector,</span>
-    <span class="hljs-comment">// private router: Router</span>
-  </span>)</span> { }
+<span style="color: #000000">  </span><span style="color: #0000FF">constructor</span><span style="color: #000000">(</span>
+<span style="color: #000000">    </span><span style="color: #008000">// private injector: Injector,</span>
+<span style="color: #000000">    </span><span style="color: #008000">// private router: Router</span>
+<span style="color: #000000">  ) { }</span>
 
-  <span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-title">includeWooAuth</span>(<span class="hljs-params">url</span>)</span> {
-    <span class="hljs-keyword">const</span> wooAuth = <span class="hljs-string">`consumer_key=<span class="hljs-subst">${environment.woocommerce.consumer_key}</span>&amp;consumer_secret=<span class="hljs-subst">${environment.woocommerce.consumer_secret}</span>`</span>;
-    <span class="hljs-keyword">const</span> hasQuery = url.includes(<span class="hljs-string">&#x27;?&#x27;</span>);
-    <span class="hljs-keyword">let</span> return_url = <span class="hljs-string">&#x27;&#x27;</span>;
-    <span class="hljs-keyword">if</span> (hasQuery) {
-      return_url =  wooAuth;
-    } <span class="hljs-keyword">else</span> {
-      return_url = <span class="hljs-string">&#x27;?&#x27;</span> + wooAuth;
-    }
-    <span class="hljs-keyword">return</span> return_url;
-  }
+<span style="color: #000000">  </span><span style="color: #0000FF">private</span><span style="color: #000000"> </span><span style="color: #795E26">includeWooAuth</span><span style="color: #000000">(</span><span style="color: #001080">url</span><span style="color: #000000">) {</span>
+<span style="color: #000000">    </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">wooAuth</span><span style="color: #000000"> = </span><span style="color: #A31515">`consumer_key=</span><span style="color: #0000FF">${</span><span style="color: #001080">environment</span><span style="color: #000000FF">.</span><span style="color: #001080">woocommerce</span><span style="color: #000000FF">.</span><span style="color: #001080">consumer_key</span><span style="color: #0000FF">}</span><span style="color: #A31515">&amp;consumer_secret=</span><span style="color: #0000FF">${</span><span style="color: #001080">environment</span><span style="color: #000000FF">.</span><span style="color: #001080">woocommerce</span><span style="color: #000000FF">.</span><span style="color: #001080">consumer_secret</span><span style="color: #0000FF">}</span><span style="color: #A31515">`</span><span style="color: #000000">;</span>
+<span style="color: #000000">    </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">hasQuery</span><span style="color: #000000"> = </span><span style="color: #001080">url</span><span style="color: #000000">.</span><span style="color: #795E26">includes</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;?&#039;</span><span style="color: #000000">);</span>
+<span style="color: #000000">    </span><span style="color: #0000FF">let</span><span style="color: #000000"> </span><span style="color: #001080">return_url</span><span style="color: #000000"> = </span><span style="color: #A31515">&#039;&#039;</span><span style="color: #000000">;</span>
+<span style="color: #000000">    </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">hasQuery</span><span style="color: #000000">) {</span>
+<span style="color: #000000">      </span><span style="color: #001080">return_url</span><span style="color: #000000"> =  </span><span style="color: #001080">wooAuth</span><span style="color: #000000">;</span>
+<span style="color: #000000">    } </span><span style="color: #AF00DB">else</span><span style="color: #000000"> {</span>
+<span style="color: #000000">      </span><span style="color: #001080">return_url</span><span style="color: #000000"> = </span><span style="color: #A31515">&#039;?&#039;</span><span style="color: #000000"> + </span><span style="color: #001080">wooAuth</span><span style="color: #000000">;</span>
+<span style="color: #000000">    }</span>
+<span style="color: #000000">    </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #001080">return_url</span><span style="color: #000000">;</span>
+<span style="color: #000000">  }</span>
 
-  intercept(request: HttpRequest&lt;<span class="hljs-built_in">any</span>&gt;, next: HttpHandler): Observable&lt;HttpEvent&lt;<span class="hljs-built_in">any</span>&gt;&gt; {
-    <span class="hljs-keyword">let</span> authRequest;
-    <span class="hljs-comment">// const auth = this.injector.get(AuthService);</span>
-    <span class="hljs-keyword">let</span> requestUrl = <span class="hljs-string">&#x27;&#x27;</span>;
-    <span class="hljs-keyword">if</span> (request.url.includes(<span class="hljs-string">&#x27;api&#x27;</span>) || request.url.includes(<span class="hljs-string">&#x27;jwt&#x27;</span>)) {
-      requestUrl = <span class="hljs-string">`<span class="hljs-subst">${environment.origin}</span>/<span class="hljs-subst">${request.url}</span>`</span>;
-    } <span class="hljs-keyword">else</span> {
-      requestUrl = <span class="hljs-string">`<span class="hljs-subst">${environment.origin}</span><span class="hljs-subst">${environment.wcEndpoint}</span>/<span class="hljs-subst">${request.url}</span><span class="hljs-subst">${<span class="hljs-built_in">this</span>.includeWooAuth(request.url)}</span>`</span>;
-    }
-    authRequest = request.clone({
-      <span class="hljs-attr">url</span>: requestUrl
-    });
+<span style="color: #000000">  </span><span style="color: #795E26">intercept</span><span style="color: #000000">(</span><span style="color: #001080">request</span><span style="color: #000000">: </span><span style="color: #267F99">HttpRequest</span><span style="color: #000000">&lt;</span><span style="color: #267F99">any</span><span style="color: #000000">&gt;, </span><span style="color: #001080">next</span><span style="color: #000000">: </span><span style="color: #267F99">HttpHandler</span><span style="color: #000000">): </span><span style="color: #267F99">Observable</span><span style="color: #000000">&lt;</span><span style="color: #267F99">HttpEvent</span><span style="color: #000000">&lt;</span><span style="color: #267F99">any</span><span style="color: #000000">&gt;&gt; {</span>
+<span style="color: #000000">    </span><span style="color: #0000FF">let</span><span style="color: #000000"> </span><span style="color: #001080">authRequest</span><span style="color: #000000">;</span>
+<span style="color: #000000">    </span><span style="color: #008000">// const auth = this.injector.get(AuthService);</span>
+<span style="color: #000000">    </span><span style="color: #0000FF">let</span><span style="color: #000000"> </span><span style="color: #001080">requestUrl</span><span style="color: #000000"> = </span><span style="color: #A31515">&#039;&#039;</span><span style="color: #000000">;</span>
+<span style="color: #000000">    </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">request</span><span style="color: #000000">.</span><span style="color: #001080">url</span><span style="color: #000000">.</span><span style="color: #795E26">includes</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;api&#039;</span><span style="color: #000000">) || </span><span style="color: #001080">request</span><span style="color: #000000">.</span><span style="color: #001080">url</span><span style="color: #000000">.</span><span style="color: #795E26">includes</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;jwt&#039;</span><span style="color: #000000">)) {</span>
+<span style="color: #000000">      </span><span style="color: #001080">requestUrl</span><span style="color: #000000"> = </span><span style="color: #A31515">`</span><span style="color: #0000FF">${</span><span style="color: #001080">environment</span><span style="color: #000000FF">.</span><span style="color: #001080">origin</span><span style="color: #0000FF">}</span><span style="color: #A31515">/</span><span style="color: #0000FF">${</span><span style="color: #001080">request</span><span style="color: #000000FF">.</span><span style="color: #001080">url</span><span style="color: #0000FF">}</span><span style="color: #A31515">`</span><span style="color: #000000">;</span>
+<span style="color: #000000">    } </span><span style="color: #AF00DB">else</span><span style="color: #000000"> {</span>
+<span style="color: #000000">      </span><span style="color: #001080">requestUrl</span><span style="color: #000000"> = </span><span style="color: #A31515">`</span><span style="color: #0000FF">${</span><span style="color: #001080">environment</span><span style="color: #000000FF">.</span><span style="color: #001080">origin</span><span style="color: #0000FF">}${</span><span style="color: #001080">environment</span><span style="color: #000000FF">.</span><span style="color: #001080">wcEndpoint</span><span style="color: #0000FF">}</span><span style="color: #A31515">/</span><span style="color: #0000FF">${</span><span style="color: #001080">request</span><span style="color: #000000FF">.</span><span style="color: #001080">url</span><span style="color: #0000FF">}${</span><span style="color: #0000FF">this</span><span style="color: #000000FF">.</span><span style="color: #795E26">includeWooAuth</span><span style="color: #000000FF">(</span><span style="color: #001080">request</span><span style="color: #000000FF">.</span><span style="color: #001080">url</span><span style="color: #000000FF">)</span><span style="color: #0000FF">}</span><span style="color: #A31515">`</span><span style="color: #000000">;</span>
+<span style="color: #000000">    }</span>
+<span style="color: #000000">    </span><span style="color: #001080">authRequest</span><span style="color: #000000"> = </span><span style="color: #001080">request</span><span style="color: #000000">.</span><span style="color: #795E26">clone</span><span style="color: #000000">({</span>
+<span style="color: #000000">      </span><span style="color: #001080">url:</span><span style="color: #000000"> </span><span style="color: #001080">requestUrl</span>
+<span style="color: #000000">    });</span>
 
-    <span class="hljs-keyword">return</span> next.handle(authRequest)
-      .pipe(
-        catchError(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> {
-          <span class="hljs-keyword">if</span> (err <span class="hljs-keyword">instanceof</span> HttpErrorResponse &amp;&amp; err.status === <span class="hljs-number">0</span>) {
-            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Check Your Internet Connection And Try again Later&#x27;</span>);
-          } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (err <span class="hljs-keyword">instanceof</span> HttpErrorResponse &amp;&amp; err.status === <span class="hljs-number">401</span>) {
-            <span class="hljs-comment">// auth.setToken(null);</span>
-            <span class="hljs-comment">// this.router.navigate([&#x27;/&#x27;, &#x27;login&#x27;]);</span>
-          }
-          <span class="hljs-keyword">return</span> throwError(err);
-        })
-      );
-  }
-}
-</code></pre><p>Add this code in your app.module.ts</p>
-				<pre><code> <span class="hljs-attr">providers:</span> [
-    {
-      <span class="hljs-attr">provide:</span> <span class="hljs-string">HTTP_INTERCEPTORS</span>,
-      <span class="hljs-attr">useClass:</span> <span class="hljs-string">AppInterceptor</span>,
-      <span class="hljs-attr">multi:</span> <span class="hljs-literal">true</span>
-    }
- ]
-</code></pre><p>Add new property in environment.ts for angular webapp</p>
-				<pre><code><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> environment = {
-  origin: <span class="hljs-string">&#x27;https://example.com/appwoo&#x27;</span>,
-  wcEndpoint: <span class="hljs-string">&#x27;/wp-json/wc/v2&#x27;</span>,
-  woocommerce: {
-    consumer_key:  <span class="hljs-string">&#x27;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#x27;</span>,
-    consumer_secret: <span class="hljs-string">&#x27;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#x27;</span>
-  }
-};</code></pre><p>Add new providers in app.module</p>
-				<pre><code><span class="hljs-keyword">import</span> {
-  WoocommerceProductsService,
-  WoocommerceHelperService
-} <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;ngx-wooapi&#x27;</span>;</code></pre><p>Add these providers in providers array</p>
-				<pre><code><span class="hljs-attribute">providers</span>:<span class="hljs-meta"> [
-  WoocommerceProductsService,
-  WoocommerceHelperService
-]</span></code></pre><p>Now use it in component</p>
-				<pre><code>import <span class="hljs-comment">{
-  WoocommerceProductsService
-}</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;ngx-wooapi&#x27;</span>;
+<span style="color: #000000">    </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #001080">next</span><span style="color: #000000">.</span><span style="color: #795E26">handle</span><span style="color: #000000">(</span><span style="color: #001080">authRequest</span><span style="color: #000000">)</span>
+<span style="color: #000000">      .</span><span style="color: #795E26">pipe</span><span style="color: #000000">(</span>
+<span style="color: #000000">        </span><span style="color: #795E26">catchError</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">          </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">err</span><span style="color: #000000"> </span><span style="color: #0000FF">instanceof</span><span style="color: #000000"> </span><span style="color: #267F99">HttpErrorResponse</span><span style="color: #000000"> &amp;&amp; </span><span style="color: #001080">err</span><span style="color: #000000">.</span><span style="color: #001080">status</span><span style="color: #000000"> === </span><span style="color: #098658">0</span><span style="color: #000000">) {</span>
+<span style="color: #000000">            </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;Check Your Internet Connection And Try again Later&#039;</span><span style="color: #000000">);</span>
+<span style="color: #000000">          } </span><span style="color: #AF00DB">else</span><span style="color: #000000"> </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">err</span><span style="color: #000000"> </span><span style="color: #0000FF">instanceof</span><span style="color: #000000"> </span><span style="color: #267F99">HttpErrorResponse</span><span style="color: #000000"> &amp;&amp; </span><span style="color: #001080">err</span><span style="color: #000000">.</span><span style="color: #001080">status</span><span style="color: #000000"> === </span><span style="color: #098658">401</span><span style="color: #000000">) {</span>
+<span style="color: #000000">            </span><span style="color: #008000">// auth.setToken(null);</span>
+<span style="color: #000000">            </span><span style="color: #008000">// this.router.navigate([&#039;/&#039;, &#039;login&#039;]);</span>
+<span style="color: #000000">          }</span>
+<span style="color: #000000">          </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #795E26">throwError</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000">);</span>
+<span style="color: #000000">        })</span>
+<span style="color: #000000">      );</span>
+<span style="color: #000000">  }</span>
+<span style="color: #000000">}</span>
 
-<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
-    <span class="hljs-keyword">private</span> wooProducs: WoocommerceProductsService
-  )</span> <span class="hljs-comment">{ }</span>
+</code></pre>
+				<p>Add this code in your app.module.ts</p>
+				<pre><code><span style="color: #000000"> providers: [</span>
+<span style="color: #000000">    {</span>
+<span style="color: #000000">      </span><span style="color: #001080">provide:</span><span style="color: #000000"> </span><span style="color: #0070C1">HTTP_INTERCEPTORS</span><span style="color: #000000">,</span>
+<span style="color: #000000">      </span><span style="color: #001080">useClass:</span><span style="color: #000000"> </span><span style="color: #001080">AppInterceptor</span><span style="color: #000000">,</span>
+<span style="color: #000000">      </span><span style="color: #001080">multi:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span>
+<span style="color: #000000">    }</span>
+<span style="color: #000000"> ]</span>
 
-  <span class="hljs-title">ngOnInit</span><span class="hljs-params">()</span> <span class="hljs-comment">{
-    this.wooProducs.retrieveProducts().subscribe(response =&gt; {
-      console.log(response);
-    }</span>, <span class="hljs-title">err</span> =&gt; <span class="hljs-comment">{
-      console.log(err);
-    }</span>);</span>
-  }
-</code></pre><p>All done have fun :)</p>
+</code></pre>
+				<p>Add new property in environment.ts for angular webapp</p>
+				<pre><code><span style="color: #AF00DB">export</span><span style="color: #000000"> </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">environment</span><span style="color: #000000"> = {</span>
+<span style="color: #000000">  </span><span style="color: #001080">origin:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;https://example.com/appwoo&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">wcEndpoint:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;/wp-json/wc/v2&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">woocommerce:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #001080">consumer_key:</span><span style="color: #000000">  </span><span style="color: #A31515">&#039;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">consumer_secret:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#039;</span>
+<span style="color: #000000">  }</span>
+<span style="color: #000000">};</span>
+</code></pre>
+				<p>Now use it in component</p>
+				<pre><code><span style="color: #AF00DB">import</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">WoocommerceProductsService</span>
+<span style="color: #000000">} </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;ngx-wooapi&#039;</span><span style="color: #000000">;</span>
+
+<span style="color: #795E26">constructor</span><span style="color: #000000">(</span>
+<span style="color: #000000">    </span><span style="color: #001080">private</span><span style="color: #000000"> </span><span style="color: #001080">wooProducs</span><span style="color: #000000">: </span><span style="color: #001080">WoocommerceProductsService</span>
+<span style="color: #000000">  ) { }</span>
+
+<span style="color: #000000">  </span><span style="color: #795E26">ngOnInit</span><span style="color: #000000">() {</span>
+<span style="color: #000000">    </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">wooProducs</span><span style="color: #000000">.</span><span style="color: #795E26">retrieveProducts</span><span style="color: #000000">().</span><span style="color: #795E26">subscribe</span><span style="color: #000000">(</span><span style="color: #001080">response</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">      </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">response</span><span style="color: #000000">);</span>
+<span style="color: #000000">    }, </span><span style="color: #001080">err</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">      </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000">);</span>
+<span style="color: #000000">    });</span>
+<span style="color: #000000">  }</span>
+
+</code></pre>
+				<p>All done have fun :)</p>
 				<a href="#woocommerce-rest-api-doc" id="woocommerce-rest-api-doc" style="color: inherit; text-decoration: none;">
 					<h3>Woocommerce Rest API doc</h3>
 				</a>
@@ -281,80 +286,89 @@
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
-					<li class="globals  ">
-						<a href="globals.html"><em>Globals</em></a>
+					<li class=" ">
+						<a href="modules.html">Modules</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_auth_auth_interface_.html">&quot;auth/auth.interface&quot;</a>
+						<a href="modules/api_index.html">api-<wbr>index</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_auth_auth_service_.html">&quot;auth/auth.service&quot;</a>
+						<a href="modules/auth_auth_interface.html">auth/auth.interface</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_categories_product_categories_interface_.html">&quot;categories/product-<wbr>categories.interface&quot;</a>
+						<a href="modules/auth_auth_service.html">auth/auth.service</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_categories_woocommerce_categories_service_.html">&quot;categories/woocommerce-<wbr>categories.service&quot;</a>
+						<a href="modules/categories_product_categories_interface.html">categories/product-<wbr>categories.interface</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_coupon_coupon_interface_.html">&quot;coupon/coupon.interface&quot;</a>
+						<a href="modules/categories_woocommerce_categories_service.html">categories/woocommerce-<wbr>categories.service</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_coupon_coupon_service_.html">&quot;coupon/coupon.service&quot;</a>
+						<a href="modules/coupon_coupon_interface.html">coupon/coupon.interface</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_customer_customer_interface_.html">&quot;customer/customer.interface&quot;</a>
+						<a href="modules/coupon_coupon_service.html">coupon/coupon.service</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_customer_customer_service_.html">&quot;customer/customer.service&quot;</a>
+						<a href="modules/customer_customer_interface.html">customer/customer.interface</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_helper_service_.html">&quot;helper.service&quot;</a>
+						<a href="modules/customer_customer_service.html">customer/customer.service</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_order_notes_order_notes_interface_.html">&quot;order-<wbr>notes/order-<wbr>notes.interface&quot;</a>
+						<a href="modules/helper_service.html">helper.service</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_order_notes_order_notes_service_.html">&quot;order-<wbr>notes/order-<wbr>notes.service&quot;</a>
+						<a href="modules/index.html">index</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_orders_order_service_.html">&quot;orders/order.service&quot;</a>
+						<a href="modules/interface_created_product_interface.html">interface/created/product.interface</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_orders_orders_interface_.html">&quot;orders/orders.interface&quot;</a>
+						<a href="modules/interface_genarated_product_interface.html">interface/genarated/product.interface</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_product_attributes_product_attributes_interface_.html">&quot;product-<wbr>attributes/product-<wbr>attributes.interface&quot;</a>
+						<a href="modules/interface_response_interface.html">interface/response-<wbr>interface</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_product_attributes_product_attributes_service_.html">&quot;product-<wbr>attributes/product-<wbr>attributes.service&quot;</a>
+						<a href="modules/order_notes_order_notes_interface.html">order-<wbr>notes/order-<wbr>notes.interface</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_product_review_product_review_service_.html">&quot;product-<wbr>review/product-<wbr>review.service&quot;</a>
+						<a href="modules/order_notes_order_notes_service.html">order-<wbr>notes/order-<wbr>notes.service</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_product_variation_product_variation_interface_.html">&quot;product-<wbr>variation/product-<wbr>variation.interface&quot;</a>
+						<a href="modules/orders_order_service.html">orders/order.service</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_product_variation_product_variation_service_.html">&quot;product-<wbr>variation/product-<wbr>variation.service&quot;</a>
+						<a href="modules/orders_orders_interface.html">orders/orders.interface</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_products_product_interface_.html">&quot;products/product.interface&quot;</a>
+						<a href="modules/product_attributes_product_attributes_interface.html">product-<wbr>attributes/product-<wbr>attributes.interface</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_products_woocommerce_products_service_.html">&quot;products/woocommerce-<wbr>products.service&quot;</a>
+						<a href="modules/product_attributes_product_attributes_service.html">product-<wbr>attributes/product-<wbr>attributes.service</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_refunds_refunds_interface_.html">&quot;refunds/refunds.interface&quot;</a>
+						<a href="modules/product_variation_product_variation_interface.html">product-<wbr>variation/product-<wbr>variation.interface</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_refunds_refunds_service_.html">&quot;refunds/refunds.service&quot;</a>
+						<a href="modules/product_variation_product_variation_service.html">product-<wbr>variation/product-<wbr>variation.service</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_tags_product_tags_interface_.html">&quot;tags/product-<wbr>tags.interface&quot;</a>
+						<a href="modules/products_woocommerce_products_service.html">products/woocommerce-<wbr>products.service</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_tags_woocommerce_tags_service_.html">&quot;tags/woocommerce-<wbr>tags.service&quot;</a>
+						<a href="modules/refunds_refunds_interface.html">refunds/refunds.interface</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/refunds_refunds_service.html">refunds/refunds.service</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/tags_product_tags_interface.html">tags/product-<wbr>tags.interface</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/tags_woocommerce_tags_service.html">tags/woocommerce-<wbr>tags.service</a>
 					</li>
 				</ul>
 			</nav>
