@@ -1,209 +1,27 @@
-# WooApi
-Woocommerce API service with angular
+# WooApiWrapper
 
-## Dependency
-- HttpClientModule
-import { HttpClientModule } from '@angular/common/http';
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.4.
 
+## Development server
 
-## Supports woocommerce API version
-- Supports V2 version / V3 Version: base url https://example.com/wp-json/wc/v2 Just change the `wcEndpoint` value in environment. For the type reference If have to use github version directly to change the interface
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-- Please see `environment` constant and interceptor for frontend setup
+## Code scaffolding
 
-- https protocol is required
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Setup instruction
-- [Backend setup](#backend-setup-instruction)
-- [Frontend setup](#frontend-setup-instruction)
+## Build
 
-## Api Doc
-- https://prosenjit-manna.github.io/wooApi
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Backend Setup instruction
+## Running unit tests
 
-### Enable CORS
-Add this code in function.php
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-```
-add_action( 'init', 'nt_cors_enable' );
+## Running end-to-end tests
 
-function nt_cors_enable() {
-  header("Access-Control-Allow-Origin: " . get_http_origin());
-  header("Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE");
-  header("Access-Control-Allow-Credentials: true");
-  header("Access-Control-Allow-Headers: Authorization, Content-Type");
-  header("Access-Control-Expose-Headers: x-wc-totalpages, x-wc-total", false);
-  if ( 'OPTIONS' == $_SERVER['REQUEST_METHOD'] ) {
-    status_header(200);
-    exit();
-  }
-}
-```
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-### Auth service dependency
-- Install JSON API user https://wordpress.org/plugins/json-api-user/, https://wordpress.org/plugins/json-api/
-- Install JWT support https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/
+## Further help
 
-After installatiion activate user controller from JSON-API settings. Under settings > JSON-API > User > activate.
-
-
-
-## Frontend Setup instruction
-
-- `npm install --save ngx-wooapi` for angular 12+
-
-Also you can download the repo and you can use directly without NPM if you need some modification
-
--
-- Add interceptor
-
-```
-import {
-  Injectable,
-  // Injector
- } from '@angular/core';
-import {
-  HttpRequest,
-  HttpHandler,
-  HttpEvent,
-  HttpInterceptor,
-  HttpErrorResponse,
-} from '@angular/common/http';
-// import { Router } from '@angular/router';
-import { catchError } from 'rxjs/operators';
-import { Observable, throwError } from 'rxjs';
-
-// import { AuthService } from './auth.service';
-import { environment } from '../environments/environment';
-
-@Injectable()
-export class AppInterceptor implements HttpInterceptor {
-
-  constructor(
-    // private injector: Injector,
-    // private router: Router
-  ) { }
-
-  private includeWooAuth(url) {
-    const wooAuth = `consumer_key=${environment.woocommerce.consumer_key}&consumer_secret=${environment.woocommerce.consumer_secret}`;
-    const hasQuery = url.includes('?');
-    let return_url = '';
-    if (hasQuery) {
-      return_url =  wooAuth;
-    } else {
-      return_url = '?' + wooAuth;
-    }
-    return return_url;
-  }
-
-  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    let authRequest;
-    // const auth = this.injector.get(AuthService);
-    let requestUrl = '';
-    if (request.url.includes('api') || request.url.includes('jwt')) {
-      requestUrl = `${environment.origin}/${request.url}`;
-    } else {
-      requestUrl = `${environment.origin}${environment.wcEndpoint}/${request.url}${this.includeWooAuth(request.url)}`;
-    }
-    authRequest = request.clone({
-      url: requestUrl
-    });
-
-    return next.handle(authRequest)
-      .pipe(
-        catchError(err => {
-          if (err instanceof HttpErrorResponse && err.status === 0) {
-            console.log('Check Your Internet Connection And Try again Later');
-          } else if (err instanceof HttpErrorResponse && err.status === 401) {
-            // auth.setToken(null);
-            // this.router.navigate(['/', 'login']);
-          }
-          return throwError(err);
-        })
-      );
-  }
-}
-
-```
-
-Add this code in your app.module.ts
-
-```
- providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AppInterceptor,
-      multi: true
-    }
- ]
-
-```
-Add new property in environment.ts for angular webapp
-
-```
-export const environment = {
-  origin: 'https://example.com/appwoo',
-  wcEndpoint: '/wp-json/wc/v2',
-  woocommerce: {
-    consumer_key:  'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-    consumer_secret: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
-  }
-};
-```
-
-
-Now use it in component
-
-```
-import {
-  WoocommerceProductsService
-} from 'ngx-wooapi';
-
-constructor(
-    private wooProducs: WoocommerceProductsService
-  ) { }
-
-  ngOnInit() {
-    this.wooProducs.retrieveProducts().subscribe(response => {
-      console.log(response);
-    }, err => {
-      console.log(err);
-    });
-  }
-
-```
-
-All done have fun :)
-
-### Woocommerce Rest API doc
-https://woocommerce.github.io/woocommerce-rest-api-docs/
-
-### Progress
-- coupons [x]
-- customers [x]
-- orders [x]
-- order-notes [x]
-- refunds [x]
-- products [x]
-- product-variations [x]
-- product-attributes [x]
-- product-attribute-terms []
-- product-categories [x]
-- product-shipping-classes []
-- product-tags [x]
-- product-reviews [x]
-- reports []
-- tax-rates []
-- tax-classes []
-- webhooks []
-- settings []
-- setting-options []
-- payment-gateways []
-- shipping-zones []
-- shipping-zone-locations []
-- shipping-zone-methods []
-- shipping-methods []
-- system-status []
-- system-status-tools []
-- data []
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
