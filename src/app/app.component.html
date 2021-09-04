@@ -1,1 +1,21 @@
-<router-outlet></router-outlet>
+<ul class="nav">
+  <li class="nav-item" ngbDropdown>
+    <a class="nav-link active" ngbDropdownToggle>Products</a>
+    <div ngbDropdownMenu >
+      <a ngbDropdownItem routerLink="/products/list">Get Products</a>
+      <a ngbDropdownItem routerLink="/products/69">Get Product</a>
+    </div>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+  </li>
+</ul>
+<div class="container-fluid">
+  <router-outlet></router-outlet>
+</div>
