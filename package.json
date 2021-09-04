@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "build:wooApi": "ng build ngx-wooapi && cp -R dist/ngx-wooapi/ node_modules/ngx-wooapi"
+    "build:wooApi": "ng build ngx-wooapi"
   },
   "private": true,
   "dependencies": {

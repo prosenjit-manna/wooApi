@@ -6,31 +6,41 @@ import { AppInterceptor } from './interceptor';
 
 import { RouterModule, Routes } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxJsonViewerModule } from 'ngx-json-viewer';
 
 const routes: Routes = [
   {
     path: 'products',
-    loadChildren: () => import('./product/product.module')
-      .then(products => products.ProductModule)
-  }
+    loadChildren: () =>
+      import('./product/product.module').then(
+        (products) => products.ProductModule
+      ),
+  },
+  {
+    path: 'api-index',
+    loadChildren: () =>
+      import('./api-index/api-index.module').then(
+        (m) => m.ApiIndexModule
+      ),
+  },
 ];
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
     NgbModule,
+    NgxJsonViewerModule,
   ],
+  exports: [NgxJsonViewerModule],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AppInterceptor,
-      multi: true
-    }
+      multi: true,
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
